@@ -214,22 +214,39 @@
         // Get all of the article elements on the page
         var articles = document.querySelectorAll(".article");
       
-        // Loop through each article and add a click event listener
+        // Loop through each article and add a click event listener to the title and image only
         articles.forEach(function(article) {
-          article.addEventListener("click", function() {
-            // Get the modal element and display it
-            var modal = this.querySelector(".modal");
-            modal.style.display = "block";
+          var title = article.querySelector("h2");
+          var image = article.querySelector("img");
       
-            // Get the close button element and add a click event listener
-            var close = modal.querySelector(".close");
-            close.addEventListener("click", function() {
-              // Hide the modal element when the close button is clicked
-              modal.style.display = "none";
-            });
+          title.addEventListener("click", toggleModal);
+          image.addEventListener("click", toggleModal);
+      
+          // Add a pointer cursor style to the title and image
+          title.style.cursor = "pointer";
+          image.style.cursor = "pointer";
+      
+          // Get the modal element for the article
+          var modal = article.querySelector(".modal");
+      
+          // Add a click event listener to the modal overlay to close the modal
+          modal.addEventListener("click", function(event) {
+            if (event.target === modal) {
+              toggleModal();
+            }
           });
+      
+          // Get the close button element and add a click event listener to close the modal
+          var close = modal.querySelector(".close");
+          close.addEventListener("click", toggleModal);
+      
+          // Toggle the display of the modal element
+          function toggleModal() {
+            modal.classList.toggle("show");
+          }
         });
       </script>
+      
        
     </main>
   </body>
