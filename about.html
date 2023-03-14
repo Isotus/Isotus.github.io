@@ -1,8 +1,158 @@
-<!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8" />
-    <title></title>
+    <title>Fake Fast Food</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f0f0f0;
+      }
+      .container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+      .logo {
+        width: 200px;
+        height: auto;
+      }
+      .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+      }
+      .navbar ul {
+        list-style: none;
+        display: flex;
+        margin: 0;
+        padding: 0;
+      }
+      .navbar li {
+        margin-left: 10px;
+      }
+      .navbar a {
+        text-decoration: none;
+        color: #333333;
+        font-weight: bold;
+      }
+      .banner {
+        height: 400px;
+        background-image: url("https://images.unsplash.com/photo-1513104890138-7c749659a591");
+        background-size: cover;
+        background-position: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        text-shadow: 2px 2px black;
+      }
+      .banner h1 {
+        font-size: 60px;
+        margin-bottom: 10px;
+      }
+      .banner p {
+        font-size: 24px;
+        margin-bottom: 20px;
+      }
+      .banner button {
+        padding: 10px 20px;
+        border-radius: 10px;
+        border: none;
+        background-color: #ff0000;
+
+        color: white;
+        font-size: 18px;
+        cursor: pointer;
+      }
+      .menu {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 20px;
+        margin-bottom: 20px;
+      }
+      .menu-item {
+        border: 1px solid #cccccc;
+        padding: 10px;
+      }
+      .menu-item img {
+        width: 100%;
+        height: auto;
+      }
+      .menu-item h3 {
+        font-size: 18px;
+        margin-top: 10px;
+        margin-bottom: 5px;
+      }
+      .menu-item p {
+        font-size: 14px;
+        color: #999999;
+        margin-bottom: 10px;
+      }
+      .menu-item span {
+        font-size: 16px;
+        font-weight: bold;
+        color: #333333;
+      }
+    </style>
   </head>
-  <body></body>
+  <body>
+    <div class="container">
+      <div class="navbar">
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Fast_food_logo.svg/1200px-Fast_food_logo.svg.png"
+          alt="Fake Fast Food Logo"
+          class="logo"
+        />
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Menu</a></li>
+          <li><a href="#">Locations</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </div>
+      <div class="banner">
+        <h1>Fake Fast Food</h1>
+        <p>The best fake food you can find.</p>
+        <button>Order Now</button>
+      </div>
+      <div class="menu">
+        <div class="menu-item">
+          <img
+            src="https://images.unsplash.com/photo-1551024601-bec78aea704b"
+            alt="Fake Burger"
+          />
+          <h3>Fake Burger</h3>
+          <p>
+            A juicy fake patty with fake cheese and fake veggies on a fake bun.
+          </p>
+          <span>$4.99</span>
+        </div>
+        <div class="menu-item">
+          <img
+            src="https://images.unsplash.com/photo-1541696432-82c6da8ce35d"
+            alt="Fake Pizza"
+          />
+          <h3>Fake Pizza</h3>
+          <p>
+            A crispy fake crust with fake sauce and fake cheese and fake
+            toppings.
+          </p>
+          <span>$9.99</span>
+        </div>
+        <div class="menu-item">
+          <img
+            src="https://images.unsplash.com/photo-1516684669134-de6f7c473a2a"
+            alt="Fake Salad"
+          />
+          <h3>Fake Salad</h3>
+          <p>
+            A fresh mix of fake greens and fake fruits and fake nuts and fake
+            dressing.
+          </p>
+          <span>$6.99</span>
+        </div>
+      </div>
+    </div>
+  </body>
 </html>
