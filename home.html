@@ -189,7 +189,48 @@
               <span class="close">&times;</span>
               <h2>New Study Finds That Plants Have Feelings Too</h2>
               <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam fermentum urna eu felis sagittis tristique. Fusce vel mi enim. Phasellus et risus sapien. Morbi molestie augue vitae finibus sagittis. Sed feugiat elementum massa eu bibendum. Ut vulputate magna a turpis faucibus, eget viverra tellus bib
-  
+              </div>
+            </div>
+          </div>
+        </div>
+    
+        <div class="article">
+          <img src="https://picsum.photos/id/240/200/200" alt="Article Image">
+          <div>
+            <h2>Local Woman Discovers Time Travel After Accidentally Using Wrong Type of Flour in Baking</h2>
+            <p>Click for more details...</p>
+            <div class="modal">
+              <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2>Local Woman Discovers Time Travel After Accidentally Using Wrong Type of Flour in Baking</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam fermentum urna eu felis sagittis tristique. Fusce vel mi enim. Phasellus et risus sapien. Morbi molestie augue vitae finibus sagittis. Sed feugiat elementum massa eu bibendum. Ut vulputate magna a turpis faucibus, eget viverra tellus bibendum. Nam consequat, enim quis facilisis faucibus, tortor lacus auctor tellus, eu ultricies eros est sit amet lorem. Donec eu nunc elit. Donec ullamcorper arcu a urna euismod, quis laoreet massa eleifend.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+      <script>
+        // Get the modal
+        var modal = document.querySelectorAll(".modal");
+    
+        // Get the <span> element that closes the modal
+        var close = document.querySelectorAll(".close");
+    
+        // When the user clicks on the button, open the modal
+        for (var i = 0; i < modal.length; i++) {
+          modal[i].onclick = function() {
+            this.querySelector(".modal-content").style.display = "block";
+          }
+        }
+    
+        // When the user clicks on <span> (x), close the modal
+        for (var i = 0; i < close.length; i++) {
+          close[i].onclick = function() {
+            this.parentElement.parentElement.style.display = "none";
+          }
+        }
+      </script>  
     </main>
   </body>
 </html>
