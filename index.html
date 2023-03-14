@@ -1,13 +1,83 @@
 <html>
   <head>
-    <title>My Website</title>
+    <style>
+      /* Use a custom font from Google Fonts */
+      @import url("https://fonts.googleapis.com/css?family=Roboto:300,400,700");
+
+      /* Set the background image and size */
+      body {
+        background-image: url("https://unsplash.com/photos/6VPEOdpFNAs");
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        margin: 0;
+        padding: 0;
+      }
+
+      /* Set the font family and color for the whole page */
+      * {
+        font-family: "Roboto", sans-serif;
+        color: white;
+      }
+
+      /* Center the title and subtitle */
+      .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+      }
+
+      /* Style the title */
+      h1 {
+        font-size: 5em;
+        font-weight: 700;
+        text-shadow: 2px 2px 4px black;
+      }
+
+      /* Style the subtitle */
+      h2 {
+        font-size: 2em;
+        font-weight: 300;
+        text-shadow: 1px 1px 2px black;
+      }
+
+      /* Style the navigation bar */
+      .navbar {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        width: 80%;
+        margin-top: 20px;
+      }
+
+      /* Style the navigation links */
+      .nav-link {
+        font-size: 1.5em;
+        font-weight: 400;
+        text-decoration: none;
+        color: white;
+        padding: 10px 20px;
+        border-radius: 10px;
+      }
+
+      /* Change the background color of the navigation links on hover */
+      .nav-link:hover {
+        background-color: rgba(255, 255, 255, 0.2);
+      }
+    </style>
   </head>
   <body>
-    <h1>Hi, world!</h1>
-    <p>This is my website.</p>
-    <script>
-      // Your JavaScript code goes here
-      alert("Welcome to my website!");
-    </script>
+    <div class="container">
+      <h1>isotus</h1>
+      <h2>personal home page</h2>
+      <div class="navbar">
+        <a href="#" class="nav-link">Home</a>
+        <a href="#" class="nav-link">About</a>
+        <a href="#" class="nav-link">Portfolio</a>
+        <a href="#" class="nav-link">Contact</a>
+      </div>
+    </div>
   </body>
 </html>
