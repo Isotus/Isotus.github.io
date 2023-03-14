@@ -211,26 +211,26 @@
       </div>
     
       <script>
-        // Get the modal
-        var modal = document.querySelectorAll(".modal");
-    
-        // Get the <span> element that closes the modal
-        var close = document.querySelectorAll(".close");
-    
-        // When the user clicks on the button, open the modal
-        for (var i = 0; i < modal.length; i++) {
-          modal[i].onclick = function() {
-            this.querySelector(".modal-content").style.display = "block";
-          }
-        }
-    
-        // When the user clicks on <span> (x), close the modal
-        for (var i = 0; i < close.length; i++) {
-          close[i].onclick = function() {
-            this.parentElement.parentElement.style.display = "none";
-          }
-        }
-      </script>  
+        // Get all of the article elements on the page
+        var articles = document.querySelectorAll(".article");
+      
+        // Loop through each article and add a click event listener
+        articles.forEach(function(article) {
+          article.addEventListener("click", function() {
+            // Get the modal element and display it
+            var modal = this.querySelector(".modal");
+            modal.style.display = "block";
+      
+            // Get the close button element and add a click event listener
+            var close = modal.querySelector(".close");
+            close.addEventListener("click", function() {
+              // Hide the modal element when the close button is clicked
+              modal.style.display = "none";
+            });
+          });
+        });
+      </script>
+       
     </main>
   </body>
 </html>
