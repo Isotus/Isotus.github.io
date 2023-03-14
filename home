@@ -1,0 +1,48 @@
+<div class="matches">
+  <h2>Potential Matches</h2>
+  <div class="match">
+    <img
+      src="https://images.unsplash.com/photo-1556745757-b8f3908a141b"
+      alt="Fake App"
+    />
+    <h3>Fake App</h3>
+    <p>A mobile app that does nothing but looks cool.</p>
+    <a href="#">View Profile</a>
+  </div>
+  <div class="match">
+    <img
+      src="https://images.unsplash.com/photo-1515879218367-8466d910aaa4"
+      alt="Fake Website"
+    />
+    <h3>Fake Website</h3>
+    <p>A website that shows fake news and fake ads.</p>
+    <a href="#">View Profile</a>
+  </div>
+  <div class="match">
+    <img
+      src="https://images.unsplash.com/photo-1523437113738-bbd3cc89fb19"
+      alt="Fake Logo"
+    />
+    <h3>Fake Logo</h3>
+    <p>A logo that represents a fake brand or company.</p>
+    <a href="#">View Profile</a>
+  </div>
+  <div class="match">
+    <img
+      src="https://images.unsplash.com/photo-1511376777868-611b54f68947"
+      alt="Fake Poster"
+    />
+    <h3>Fake Poster</h3>
+    <p>A poster that promotes a fake event or product.</p>
+    <a href="#">View Profile</a>
+  </div>
+  <div class="match">
+    <img
+      src="https://images.unsplash.com/photo-1493723843671-1d655e66ac1c"
+      alt="Fake Book"
+    />
+    <h3>Fake Book</h3>
+    <p>A book that tells a fake story or gives fake advice.</p>
+    <a href="#">View Profile</a>
+  </div>
+</div>
