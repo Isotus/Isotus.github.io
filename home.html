@@ -1,120 +1,154 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>The Daily Isotus</title>
     <style>
-      /* add your own styles here */
+      /* navigation bar styles */
+      header {
+        background-color: #2f2e2e;
+        color: white;
+        padding: 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      #logo {
+        font-size: 30px;
+        font-weight: bold;
+      }
+
+      nav ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+      }
+
+      nav li {
+        margin: 0 10px;
+      }
+
+      nav a {
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+      }
+
+      /* main content styles */
+      main {
+        margin: 20px;
+      }
+
+      h1 {
+        font-size: 36px;
+        font-weight: bold;
+        margin-bottom: 20px;
+      }
+
+      .article {
+        display: flex;
+        margin-bottom: 20px;
+      }
+
+      .article img {
+        width: 200px;
+        height: 200px;
+        object-fit: cover;
+        margin-right: 20px;
+      }
+
+      .article h2 {
+        font-size: 24px;
+        margin-bottom: 10px;
+      }
+
+      .article p {
+        font-size: 16px;
+        line-height: 1.5;
+        margin: 0;
+      }
+
+      /* modal styles */
+      .modal {
+        display: none;
+        position: fixed;
+        z-index: 1;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgba(0, 0, 0, 0.8);
+      }
+
+      .modal-content {
+        background-color: white;
+        margin: 10% auto;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 80%;
+        max-width: 600px;
+        position: relative;
+      }
+
+      .close {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        font-size: 30px;
+        font-weight: bold;
+        color: #888;
+        cursor: pointer;
+      }
+
+      /* responsive styles */
+      @media screen and (max-width: 768px) {
+        header {
+          flex-direction: column;
+          align-items: center;
+        }
+
+        #logo {
+          margin-bottom: 10px;
+        }
+
+        nav {
+          margin-top: 10px;
+        }
+
+        .article {
+          flex-direction: column;
+        }
+
+        .article img {
+          width: 100%;
+          height: auto;
+          margin-right: 0;
+          margin-bottom: 10px;
+        }
+
+        .modal-content {
+          margin: 20% auto;
+        }
+      }
     </style>
   </head>
   <body>
     <header>
-      <h1>The Daily Isotus</h1>
+      <div id="logo">The Daily Isotus</div>
       <nav>
         <ul>
           <li><a href="#">Home</a></li>
-          <li><a href="#">Politics</a></li>
-          <li><a href="#">Entertainment</a></li>
-          <li><a href="#">Sports</a></li>
-          <li><a href="#">Opinion</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Contact</a></li>
         </ul>
       </nav>
     </header>
 
     <main>
-      <article>
-        <img src="https://via.placeholder.com/150" alt="Article Image" />
-        <h2>
-          <a href="#" onclick="openArticle('article1')"
-            >The Secret Society of Synchronized Swimmers</a
-          >
-        </h2>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed et sapien
-          nunc. Praesent convallis tortor sed sapien dictum, eu iaculis neque
-          varius. Integer ullamcorper pharetra sapien, ac malesuada augue.
-          Nullam aliquet gravida nisi id pulvinar.
-        </p>
-      </article>
-
-      <article>
-        <img src="https://via.placeholder.com/150" alt="Article Image" />
-        <h2>
-          <a href="#" onclick="openArticle('article2')"
-            >The Quest for the Perfect Avocado</a
-          >
-        </h2>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed et sapien
-          nunc. Praesent convallis tortor sed sapien dictum, eu iaculis neque
-          varius. Integer ullamcorper pharetra sapien, ac malesuada augue.
-          Nullam aliquet gravida nisi id pulvinar.
-        </p>
-      </article>
-
-      <article>
-        <img src="https://via.placeholder.com/150" alt="Article Image" />
-        <h2>
-          <a href="#" onclick="openArticle('article3')"
-            >The Unseen World of Ghost Toilets</a
-          >
-        </h2>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed et sapien
-          nunc. Praesent convallis tortor sed sapien dictum, eu iaculis neque
-          varius. Integer ullamcorper pharetra sapien, ac malesuada augue.
-          Nullam aliquet gravida nisi id pulvinar.
-        </p>
-      </article>
+      <h1>Welcome to The Daily Isotus</h1>
     </main>
-
-    <div id="article1" class="modal">
-      <div class="modal-content">
-        <span class="close" onclick="closeArticle('article1')">&times;</span>
-        <h2>The Secret Society of Synchronized Swimmers</h2>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed et sapien
-          nunc. Praesent convallis tortor sed sapien dictum, eu iaculis neque
-          varius. Integer ullamcorper pharetra sapien, ac malesuada augue.
-          Nullam aliquet gravida nisi id pulvinar.
-        </p>
-      </div>
-    </div>
-
-    <div id="article2" class="modal">
-      <div class="modal-content">
-        <span class="close" onclick="closeArticle('article2')">&times;</span>
-        <h2>The Quest for the Perfect Avocado</h2>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed et sapien
-          nunc. Praesent convallis tortor sed sapien dictum, eu iaculis neque
-          varius. Integer ullamcorper pharetra sapien, ac malesuada augue.
-          Nullam aliquet gravida nisi id pulvinar.
-        </p>
-      </div>
-    </div>
-    <div id="article3" class="modal">
-      <div class="modal-content">
-        <span class="close" onclick="closeArticle('article3')">&times;</span>
-        <h2>The Unseen World of Ghost Toilets</h2>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed et sapien
-          nunc. Praesent convallis tortor sed sapien dictum, eu iaculis neque
-          varius. Integer ullamcorper pharetra sapien, ac malesuada augue.
-          Nullam aliquet gravida nisi id pulvinar.
-        </p>
-      </div>
-    </div>
-    <script>
-      // code for opening and closing articles in a modal
-      function openArticle(articleId) {
-        document.getElementById(articleId).style.display = "block";
-      }
-
-      function closeArticle(articleId) {
-        document.getElementById(articleId).style.display = "none";
-      }
-    </script>
   </body>
 </html>
