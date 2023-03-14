@@ -213,36 +213,40 @@
       <script>
         // Get all of the article elements on the page
         var articles = document.querySelectorAll(".article");
-      
+    
         // Loop through each article and add a click event listener to the title and image only
         articles.forEach(function(article) {
           var title = article.querySelector("h2");
           var image = article.querySelector("img");
-      
+    
           title.addEventListener("click", toggleModal);
           image.addEventListener("click", toggleModal);
-      
+    
           // Add a pointer cursor style to the title and image
           title.style.cursor = "pointer";
           image.style.cursor = "pointer";
-      
+    
           // Get the modal element for the article
           var modal = article.querySelector(".modal");
-      
+    
           // Add a click event listener to the modal overlay to close the modal
           modal.addEventListener("click", function(event) {
             if (event.target === modal) {
               toggleModal();
             }
           });
-      
+    
           // Get the close button element and add a click event listener to close the modal
           var close = modal.querySelector(".close");
           close.addEventListener("click", toggleModal);
-      
+    
           // Toggle the display of the modal element
           function toggleModal() {
-            modal.classList.toggle("show");
+            if (modal.style.display === "none") {
+              modal.style.display = "block";
+            } else {
+              modal.style.display = "none";
+            }
           }
         });
       </script>
