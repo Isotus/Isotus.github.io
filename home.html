@@ -53,12 +53,6 @@
         margin-bottom: 20px;
         margin: 30px auto; /* Add some margin on top and bottom, and center the element horizontally */
         max-width: 90%; /* Adjust this value as you like */
-        transition: transform 0.2s ease-in-out;
-
-      }
-      
- .article:hover {
-        transform: scale(1.05);
       }
 
       .article img {
@@ -138,13 +132,29 @@
           margin-right: 0;
           margin-bottom: 10px;
         }
-        
-        
 
         .modal-content {
           margin: 20% auto;
         }
       }
+
+    .article {
+      cursor: pointer;
+      position: relative;
+      transition: transform 0.5s, background-color 1s;
+    }
+
+.article {
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+}
+
+.article:hover {
+  transform: scale(1.1);
+}
+
+/* Add any other styles for the object here */
+
 
 
     .modal {
@@ -228,6 +238,31 @@
       </div>
     
 
+      <!-- <script>
+
+        // Get the modal element by its id
+        var modal = document.getElementById("modal");
+        
+        // Get the button element by its id
+        var btn = document.getElementById("btn-open");
+        
+        // Define a function to open the modal
+        function openModal() {
+         // Change the display property of the modal to block
+         modal.style.display = "block";
+        }
+        
+        // Define a function to close the modal
+        function closeModal() {
+         // Change the display property of the modal to none
+         modal.style.display = "none";
+        }
+        
+        </script> -->
+
+
+
+
       <script>
         // Get all of the article elements on the page
         var articles = document.querySelectorAll(".article");
@@ -267,38 +302,6 @@
             }
           }
         });
-        
-        const imageContainer = document.querySelector('.image-container');
-		const modal = document.querySelector('.modal');
-		const modalContent = document.querySelector('.modal-content');
-
-		imageContainer.addEventListener('click', e => {
-			// Disable enlarge effect when modal is opened
-			imageContainer.removeEventListener('mouseenter', enlargeImage);
-			imageContainer.removeEventListener('mouseleave', shrinkImage);
-
-			modalContent.src = e.target.src;
-			modal.style.display = 'flex';
-		});
-
-		modal.addEventListener('click', e => {
-			modal.style.display = 'none';
-
-			// Re-enable enlarge effect when modal is closed
-			imageContainer.addEventListener('mouseenter', enlargeImage);
-			imageContainer.addEventListener('mouseleave', shrinkImage);
-		});
-
-		function enlargeImage() {
-			this.querySelector('.image').style.transform = 'scale(1.1)';
-		}
-
-		function shrinkImage() {
-			this.querySelector('.image').style.transform = 'scale(1)';
-		}
-
-		imageContainer.addEventListener('mouseenter', enlargeImage);
-		imageContainer.addEventListener('mouseleave', shrinkImage);
       </script>
       
        
