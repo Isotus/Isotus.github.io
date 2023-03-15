@@ -219,7 +219,7 @@
         </div>
       </div>
 
-      <div class="article" data-content="article1.html">
+      <div class="article" data-content="FIZZIX">
         <img src="https://picsum.photos/id/237/200/200" alt="Article Image" />
         <div>
           <h2>
@@ -230,7 +230,7 @@
         </div>
       </div>
 
-      <div class="article" data-content="article2.html">
+      <div class="article" data-content="CHEEZZ">
         <img src="https://picsum.photos/id/238/200/200" alt="Article Image" />
         <div>
           <h2>
@@ -273,17 +273,13 @@
         articles.forEach((article) => {
           article.addEventListener("click", () => {
             modal.style.display = "block";
-            const articleContentUrl = article.getAttribute("data-content-url");
+            const articleContent = article.getAttribute("data-content");
             const articleImageSrc = article
               .querySelector("img")
               .getAttribute("src");
             modalHeaderImage.setAttribute("src", articleImageSrc);
             modalHeading.textContent = article.querySelector("h2").textContent;
-            fetch(articleContentUrl)
-              .then((response) => response.text())
-              .then((data) => {
-                modalArticleContent.innerHTML = data;
-              });
+            modalArticleContent.textContent = articleContent;
           });
         });
 
