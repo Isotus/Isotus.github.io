@@ -6,7 +6,7 @@
     <style>
       /* navigation bar styles */
       header {
-        background-color: #2f2e2e;
+        background-color: #343434;
         color: white;
         padding: 20px;
         display: flex;
@@ -14,9 +14,16 @@
         align-items: center;
       }
 
+body {
+background-color: #eadeda;
+
+}
+
       #logo {
-        font-size: 30px;
+        font-size: 40px;
         font-weight: bold;
+                color: #eadeda;
+
       }
 
       nav ul {
@@ -31,7 +38,7 @@
       }
 
       nav a {
-        color: white;
+        color: #eadeda;
         text-decoration: none;
         font-weight: bold;
       }
@@ -46,6 +53,10 @@
         font-weight: bold;
         margin-bottom: 20px;
         margin: 30px auto; /* Add some margin on top and bottom, and center the element horizontally */
+        max-width: 90%; /* Adjust this value as you like */
+        color: #343434;
+
+
       }
 
       .article {
@@ -65,12 +76,14 @@
       .article h2 {
         font-size: 24px;
         margin-bottom: 10px;
+        color: #343434;
       }
 
       .article p {
         font-size: 16px;
         line-height: 1.5;
         margin: 0;
+        color: #343434;
         
       }
 
@@ -85,16 +98,23 @@
         height: 100%;
         overflow: auto;
         background-color: rgba(0, 0, 0, 0.8);
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+          border-radius: 5px;
+
+
       }
 
       .modal-content {
-        background-color: white;
+        background-color: #eadeda;
         margin: 10% auto;
         padding: 20px;
         border: 1px solid #888;
         width: 80%;
         max-width: 600px;
         position: relative;
+          border-radius: 5px;
+
+        
       }
 
       .close {
@@ -141,7 +161,7 @@
     .article {
       cursor: pointer;
       position: relative;
-      transition: transform 0.5s, background-color 1s;
+      transition: transform 0.7s, background-color 1s;
     }
 
 .article {
@@ -151,15 +171,26 @@
 
 .article:hover {
   transform: scale(1.1);
+  background-color: #92a8d1;
+  border-radius: 5px;
 }
-
-/* Add any other styles for the object here */
-
-
 
     .modal {
       display: none;
     }
+    
+   .article img {
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+
+
+.article {
+  background-color: #eadada;
+    border-radius: 5px;
+
+}
+    
     </style>
   </head>
   <body>
@@ -178,20 +209,22 @@
       <h1>Welcome to The Daily Isotus</h1>
       
       
-      <div class="article">
-        <img src="https://picsum.photos/id/237/200/200" alt="Article Image">
-        <div>
-          <h2>BBBreaking News: Quantum Physicists Discover Multiverse Exists Within Our Own Multiverse</h2>
-          <p>Click for more details...</p>
-          <div class="modal">
-            <div class="modal-content">
-              <span class="close">&times;</span>
-              <h2>Breaking News: Quantum Physicists Discover Multiverse Exists Within Our Own Multiverse</h2>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam fermentum urna eu felis sagittis tristique. Fusce vel mi enim. Phasellus et risus sapien. Morbi molestie augue vitae finibus sagittis. Sed feugiat elementum massa eu bibendum. Ut vulputate magna a turpis faucibus, eget viverra tellus bibendum. Nam consequat, enim quis facilisis faucibus, tortor lacus auctor tellus, eu ultricies eros est sit amet lorem. Donec eu nunc elit. Donec ullamcorper arcu a urna euismod, quis laoreet massa eleifend.</p>
-            </div>
-          </div>
-        </div>
-      </div>
+<div class="article">
+  <img src="https://picsum.photos/id/237/200/200" alt="Article Image">
+  <div>
+    <h2>BBBreaking News: Quantum Physicists Discover Multiverse Exists Within Our Own Multiverse</h2>
+    <p>Click for more details...</p>
+  </div>
+</div>
+
+<div class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <h2>Breaking News: Quantum Physicists Discover Multiverse Exists Within Our Own Multiverse</h2>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam fermentum urna eu felis sagittis tristique. Fusce vel mi enim. Phasellus et risus sapien. Morbi molestie augue vitae finibus sagittis. Sed feugiat elementum massa eu bibendum. Ut vulputate magna a turpis faucibus, eget viverra tellus bibendum. Nam consequat, enim quis facilisis faucibus, tortor lacus auctor tellus, eu ultricies eros est sit amet lorem. Donec eu nunc elit. Donec ullamcorper arcu a urna euismod, quis laoreet massa eleifend.</p>
+  </div>
+</div>
+
   
       <div class="article">
         <img src="https://picsum.photos/id/238/200/200" alt="Article Image">
@@ -240,77 +273,36 @@
       </div>
     
 
-      <!-- <script>
-
-        // Get the modal element by its id
-        var modal = document.getElementById("modal");
-        
-        // Get the button element by its id
-        var btn = document.getElementById("btn-open");
-        
-        // Define a function to open the modal
-        function openModal() {
-         // Change the display property of the modal to block
-         modal.style.display = "block";
-        }
-        
-        // Define a function to close the modal
-        function closeModal() {
-         // Change the display property of the modal to none
-         modal.style.display = "none";
-        }
-        
-        </script> -->
-
 
 
 
       <script>
-        // Get all of the article elements on the page
-        var articles = document.querySelectorAll(".article");
-    
-        // Loop through each article and add a click event listener to the title and image only
-        articles.forEach(function(article) {
-          var title = article.querySelector("h2");
-          var image = article.querySelector("img");
-           var para = article.querySelector("p");
-      
-    
-          title.addEventListener("click", toggleModal);
-          image.addEventListener("click", toggleModal);
-          para.addEventListener("click", toggleModal);
+      // Get the modal element
+var modal = document.querySelector(".modal");
 
-    
-          // Add a pointer cursor style to the title and image
-          title.style.cursor = "pointer";
-          image.style.cursor = "pointer";
-          para.style.cursor = "pointer";
+// Get the button that opens the modal
+var button = document.querySelector(".article");
 
+// Get the <span> element that closes the modal
+var close = modal.querySelector(".close");
 
-    
-          // Get the modal element for the article
-          var modal = article.querySelector(".modal");
-    
-          // Add a click event listener to the modal overlay to close the modal
-          modal.addEventListener("click", function(event) {
-            if (event.target === modal) {
-              toggleModal();
-            }
-          });
-    
-          // Get the close button element and add a click event listener to close the modal
-          var close = modal.querySelector(".close");
-          close.addEventListener("click", toggleModal);
-    
-          // Toggle the display of the modal element
-          function toggleModal() {
-            if (modal.style.display === "none") {
-              modal.style.display = "block";
-            } else {
-              modal.style.display = "none";
-            }
-          }
-        });
+// When the user clicks the button, open the modal
+button.addEventListener("click", function() {
+  modal.style.display = "block";
+});
+
+// When the user clicks on <span> (x), close the modal
+close.addEventListener("click", function() {
+  modal.style.display = "none";
+});
+
+// When the user clicks anywhere outside of the modal, close it
+window.addEventListener("click", function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+});
+ 
       </script>
       
        
