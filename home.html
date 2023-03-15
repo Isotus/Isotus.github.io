@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
   <head>
     <meta charset="UTF-8" />
     <title>The Daily Isotus</title>
@@ -14,15 +15,15 @@
         align-items: center;
       }
 
-body {
-background-color: #eadeda;
+      body {
+        background-color: #eadeda;
 
-}
+      }
 
       #logo {
         font-size: 40px;
         font-weight: bold;
-                color: #eadeda;
+        color: #eadeda;
 
       }
 
@@ -52,8 +53,10 @@ background-color: #eadeda;
         font-size: 36px;
         font-weight: bold;
         margin-bottom: 20px;
-        margin: 30px auto; /* Add some margin on top and bottom, and center the element horizontally */
-        max-width: 90%; /* Adjust this value as you like */
+        margin: 30px auto;
+        /* Add some margin on top and bottom, and center the element horizontally */
+        max-width: 90%;
+        /* Adjust this value as you like */
         color: #343434;
 
 
@@ -62,8 +65,10 @@ background-color: #eadeda;
       .article {
         display: flex;
         margin-bottom: 20px;
-        margin: 30px auto; /* Add some margin on top and bottom, and center the element horizontally */
-        max-width: 90%; /* Adjust this value as you like */
+        margin: 30px auto;
+        /* Add some margin on top and bottom, and center the element horizontally */
+        max-width: 90%;
+        /* Adjust this value as you like */
       }
 
       .article img {
@@ -84,7 +89,7 @@ background-color: #eadeda;
         line-height: 1.5;
         margin: 0;
         color: #343434;
-        
+
       }
 
       /* modal styles */
@@ -99,7 +104,7 @@ background-color: #eadeda;
         overflow: auto;
         background-color: rgba(0, 0, 0, 0.8);
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-          border-radius: 5px;
+        border-radius: 5px;
 
 
       }
@@ -112,9 +117,9 @@ background-color: #eadeda;
         width: 80%;
         max-width: 600px;
         position: relative;
-          border-radius: 5px;
+        border-radius: 5px;
 
-        
+
       }
 
       .close {
@@ -158,43 +163,44 @@ background-color: #eadeda;
         }
       }
 
-    .article {
-      cursor: pointer;
-      position: relative;
-      transition: transform 0.7s, background-color 1s;
-    }
+      .article {
+        cursor: pointer;
+        position: relative;
+        transition: transform 0.7s, background-color 1s;
+      }
 
-.article {
-  transform-style: preserve-3d;
-  backface-visibility: hidden;
-}
+      .article {
+        transform-style: preserve-3d;
+        backface-visibility: hidden;
+      }
 
-.article:hover {
-  transform: scale(1.1);
-  background-color: #998888;
-  border-radius: 5px;
- 
-}
+      .article:hover {
+        transform: scale(1.1);
+        background-color: #998888;
+        border-radius: 5px;
 
-    .modal {
-      display: none;
-    }
-    
-   .article img {
-  border-top-left-radius: 5px;
-  border-bottom-left-radius: 5px;
-}
+      }
+
+      .modal {
+        display: none;
+      }
+
+      .article img {
+        border-top-left-radius: 5px;
+        border-bottom-left-radius: 5px;
+      }
 
 
-.article {
- 
-    border-radius: 5px;
-    border: 3px solid red;
-    border-color: #3f4739;
-}
-    
+      .article {
+
+        border-radius: 5px;
+        border: 3px solid red;
+        border-color: #3f4739;
+      }
+
     </style>
   </head>
+
   <body>
     <header>
       <div id="logo">The Daily Isotus</div>
@@ -209,25 +215,25 @@ background-color: #eadeda;
 
     <main>
       <h1>Welcome to The Daily Isotus</h1>
-      
-      
-<div class="article">
-  <img src="https://picsum.photos/id/237/200/200" alt="Article Image">
-  <div>
-    <h2>Breaking News: Quantum Physicists Discover Multiverse Exists Within Our Own Multiverse</h2>
-    <p>Click for more details...</p>
-  </div>
-</div>
 
-<div class="modal">
-  <div class="modal-content">
-    <span class="close">&times;</span>
-    <h2>Breaking News: Quantum Physicists Discover Multiverse Exists Within Our Own Multiverse</h2>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam fermentum urna eu felis sagittis tristique. Fusce vel mi enim. Phasellus et risus sapien. Morbi molestie augue vitae finibus sagittis. Sed feugiat elementum massa eu bibendum. Ut vulputate magna a turpis faucibus, eget viverra tellus bibendum. Nam consequat, enim quis facilisis faucibus, tortor lacus auctor tellus, eu ultricies eros est sit amet lorem. Donec eu nunc elit. Donec ullamcorper arcu a urna euismod, quis laoreet massa eleifend.</p>
-  </div>
-</div>
 
-  
+      <div class="article">
+        <img src="https://picsum.photos/id/237/200/200" alt="Article Image">
+        <div>
+          <h2>Breaking News: Quantum Physicists Discover Multiverse Exists Within Our Own Multiverse</h2>
+          <p>Click for more details...</p>
+        </div>
+      </div>
+
+      <div class="modal">
+        <div class="modal-content">
+          <span class="close">&times;</span>
+          <h2>Breaking News: Quantum Physicists Discover Multiverse Exists Within Our Own Multiverse</h2>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam fermentum urna eu felis sagittis tristique. Fusce vel mi enim. Phasellus et risus sapien. Morbi molestie augue vitae finibus sagittis. Sed feugiat elementum massa eu bibendum. Ut vulputate magna a turpis faucibus, eget viverra tellus bibendum. Nam consequat, enim quis facilisis faucibus, tortor lacus auctor tellus, eu ultricies eros est sit amet lorem. Donec eu nunc elit. Donec ullamcorper arcu a urna euismod, quis laoreet massa eleifend.</p>
+        </div>
+      </div>
+
+
       <div class="article">
         <img src="https://picsum.photos/id/238/200/200" alt="Article Image">
         <div>
@@ -236,15 +242,15 @@ background-color: #eadeda;
         </div>
       </div>
 
-          <div class="modal">
-            <div class="modal-content">
-              <span class="close">&times;</span>
-              <h2>Local Man Discovers Secret to Eternal Youth: Eating Only Cheese Puffs</h2>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam fermentum urna eu felis sagittis tristique. Fusce vel mi enim. Phasellus et risus sapien. Morbi molestie augue vitae finibus sagittis. Sed feugiat elementum massa eu bibendum. Ut vulputate magna a turpis faucibus, eget viverra tellus bibendum. Nam consequat, enim quis facilisis faucibus, tortor lacus auctor tellus, eu ultricies eros est sit amet lorem. Donec eu nunc elit. Donec ullamcorper arcu a urna euismod, quis laoreet massa eleifend.</p>
-            </div>
-          </div>
-       
-  
+      <div class="modal">
+        <div class="modal-content">
+          <span class="close">&times;</span>
+          <h2>Local Man Discovers Secret to Eternal Youth: Eating Only Cheese Puffs</h2>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam fermentum urna eu felis sagittis tristique. Fusce vel mi enim. Phasellus et risus sapien. Morbi molestie augue vitae finibus sagittis. Sed feugiat elementum massa eu bibendum. Ut vulputate magna a turpis faucibus, eget viverra tellus bibendum. Nam consequat, enim quis facilisis faucibus, tortor lacus auctor tellus, eu ultricies eros est sit amet lorem. Donec eu nunc elit. Donec ullamcorper arcu a urna euismod, quis laoreet massa eleifend.</p>
+        </div>
+      </div>
+
+
       <div class="article">
         <img src="https://picsum.photos/id/239/200/200" alt="Article Image">
         <div>
@@ -253,65 +259,66 @@ background-color: #eadeda;
         </div>
       </div>
 
-          <div class="modal">
-            <div class="modal-content">
-              <span class="close">&times;</span>
-              <h2>New Study Finds That Plants Have Feelings Too</h2>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam fermentum urna eu felis sagittis tristique. Fusce vel mi enim. Phasellus et risus sapien. Morbi molestie augue vitae finibus sagittis. Sed feugiat elementum massa eu bibendum. Ut vulputate magna a turpis faucibus, eget viverra tellus bib
-              </div>
-            </div>
-         
-    
-        <div class="article">
-          <img src="https://picsum.photos/id/240/200/200" alt="Article Image">
-          <div>
-            <h2>Local Woman Discovers Time Travel After Accidentally Using Wrong Type of Flour in Baking</h2>
-            <p>Click for more details...</p>
-          </div>
+      <div class="modal">
+        <div class="modal-content">
+          <span class="close">&times;</span>
+          <h2>New Study Finds That Plants Have Feelings Too</h2>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam fermentum urna eu felis sagittis tristique. Fusce vel mi enim. Phasellus et risus sapien. Morbi molestie augue vitae finibus sagittis. Sed feugiat elementum massa eu bibendum. Ut vulputate magna a turpis faucibus, eget viverra tellus bib
         </div>
+      </div>
 
-            <div class="modal">
-              <div class="modal-content">
-                <span class="close">&times;</span>
-                <h2>Local Woman Discovers Time Travel After Accidentally Using Wrong Type of Flour in Baking</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam fermentum urna eu felis sagittis tristique. Fusce vel mi enim. Phasellus et risus sapien. Morbi molestie augue vitae finibus sagittis. Sed feugiat elementum massa eu bibendum. Ut vulputate magna a turpis faucibus, eget viverra tellus bibendum. Nam consequat, enim quis facilisis faucibus, tortor lacus auctor tellus, eu ultricies eros est sit amet lorem. Donec eu nunc elit. Donec ullamcorper arcu a urna euismod, quis laoreet massa eleifend.</p>
-              </div>
-            </div>
-          </div>
-        
-    
+
+      <div class="article">
+        <img src="https://picsum.photos/id/240/200/200" alt="Article Image">
+        <div>
+          <h2>Local Woman Discovers Time Travel After Accidentally Using Wrong Type of Flour in Baking</h2>
+          <p>Click for more details...</p>
+        </div>
+      </div>
+
+      <div class="modal">
+        <div class="modal-content">
+          <span class="close">&times;</span>
+          <h2>Local Woman Discovers Time Travel After Accidentally Using Wrong Type of Flour in Baking</h2>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam fermentum urna eu felis sagittis tristique. Fusce vel mi enim. Phasellus et risus sapien. Morbi molestie augue vitae finibus sagittis. Sed feugiat elementum massa eu bibendum. Ut vulputate magna a turpis faucibus, eget viverra tellus bibendum. Nam consequat, enim quis facilisis faucibus, tortor lacus auctor tellus, eu ultricies eros est sit amet lorem. Donec eu nunc elit. Donec ullamcorper arcu a urna euismod, quis laoreet massa eleifend.</p>
+        </div>
+      </div>
+      </div>
+
+
 
       <script>
-      // Get the modal element
-var modal = document.querySelector(".modal");
+        // Get the modal element
+        var modal = document.querySelector(".modal");
 
-// Get the button that opens the modal
-var button = document.querySelector(".article");
+        // Get the button that opens the modal
+        var button = document.querySelector(".article");
 
-// Get the <span> element that closes the modal
-var close = modal.querySelector(".close");
+        // Get the <span> element that closes the modal
+        var close = modal.querySelector(".close");
 
-// When the user clicks the button, open the modal
-button.addEventListener("click", function() {
-  modal.style.display = "block";
-});
+        // When the user clicks the button, open the modal
+        button.addEventListener("click", function() {
+          modal.style.display = "block";
+        });
 
-// When the user clicks on <span> (x), close the modal
-close.addEventListener("click", function() {
-  modal.style.display = "none";
-});
+        // When the user clicks on <span> (x), close the modal
+        close.addEventListener("click", function() {
+          modal.style.display = "none";
+        });
 
-// When the user clicks anywhere outside of the modal, close it
-window.addEventListener("click", function(event) {
-  if (event.target == modal) {
-    modal.style.display = "none";
-  }
-});
- 
+        // When the user clicks anywhere outside of the modal, close it
+        window.addEventListener("click", function(event) {
+          if (event.target == modal) {
+            modal.style.display = "none";
+          }
+        });
+
       </script>
-      
-       
+
+
 
     </main>
   </body>
+
 </html>
