@@ -176,6 +176,8 @@
 
     <main>
       <h1>Welcome to The Daily Isotus</h1>
+      
+      
       <div class="article">
         <img src="https://picsum.photos/id/237/200/200" alt="Article Image">
         <div>
@@ -271,13 +273,20 @@
         articles.forEach(function(article) {
           var title = article.querySelector("h2");
           var image = article.querySelector("img");
+           var para = article.querySelector("p");
+      
     
           title.addEventListener("click", toggleModal);
           image.addEventListener("click", toggleModal);
+          para.addEventListener("click", toggleModal);
+
     
           // Add a pointer cursor style to the title and image
           title.style.cursor = "pointer";
           image.style.cursor = "pointer";
+          para.style.cursor = "pointer";
+
+
     
           // Get the modal element for the article
           var modal = article.querySelector(".modal");
