@@ -303,43 +303,49 @@
       </div>
 
       <script>
-        const articles = document.querySelectorAll(".article");
-        const modal = document.querySelector(".modal");
-        const closeModal = document.querySelector(".close");
-        const modalHeaderImage = document.querySelector(".modal-header-image");
-        const modalHeading = document.querySelector(".modal-heading");
+        window.onload = function () {
+          const articles = document.querySelectorAll(".article");
+          const modal = document.querySelector(".modal");
+          const closeModal = document.querySelector(".close");
+          const modalHeaderImage = document.querySelector(
+            ".modal-header-image"
+          );
+          const modalHeading = document.querySelector(".modal-heading");
+          const modalByline = document.querySelector(".modal-byline");
 
-        const modalArticleContent = document.querySelector(
-          ".modal-article-content"
-        );
+          const modalArticleContent = document.querySelector(
+            ".modal-article-content"
+          );
 
-        articles.forEach((article) => {
-          article.addEventListener("click", () => {
-            modal.style.display = "block";
-            const articleContent = article
-              .getAttribute("data-content")
-              .replace(/\\n/g, "<br>")
-              .replace(/\\t/g, "&emsp;");
-            const articleImageSrc = article
-              .querySelector("img")
-              .getAttribute("src");
-            modalHeaderImage.setAttribute("src", articleImageSrc);
-            modalHeading.textContent = article.querySelector("h2").textContent;
-            const byline = article.querySelector("em").textContent;
-            modal.querySelector(".modal-byline").textContent = byline;
-            modalArticleContent.innerHTML = articleContent;
+          articles.forEach((article) => {
+            article.addEventListener("click", () => {
+              modal.style.display = "block";
+              const byline = article.querySelector("em").textContent;
+              modalByline.textContent = byline;
+              const articleContent = article
+                .getAttribute("data-content")
+                .replace(/\\n/g, "<br>")
+                .replace(/\\t/g, "&emsp;");
+              const articleImageSrc = article
+                .querySelector("img")
+                .getAttribute("src");
+              modalHeaderImage.setAttribute("src", articleImageSrc);
+              modalHeading.textContent =
+                article.querySelector("h2").textContent;
+              modalArticleContent.innerHTML = articleContent;
+            });
           });
-        });
 
-        closeModal.addEventListener("click", () => {
-          modal.style.display = "none";
-        });
-
-        window.addEventListener("click", (event) => {
-          if (event.target == modal) {
+          closeModal.addEventListener("click", () => {
             modal.style.display = "none";
-          }
-        });
+          });
+
+          window.addEventListener("click", (event) => {
+            if (event.target == modal) {
+              modal.style.display = "none";
+            }
+          });
+        };
       </script>
     </main>
   </body>
