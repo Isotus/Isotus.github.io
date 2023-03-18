@@ -105,12 +105,16 @@
         background-color: #eadeda;
         margin: 10% auto;
         padding: 20px;
-        border: 1px solid #888;
+        border: 1px solid #3f4739;
         width: 100%;
-        max-width: 600px;
+        max-width: 850px;
         position: relative;
         border-radius: 5px;
         text-align: justify;
+      }
+
+      .modal-content h2 {
+        text-align: center;
       }
 
       .close {
@@ -217,6 +221,7 @@
           <span class="close">&times;</span>
           <img class="modal-header-image" alt="Article Image" />
           <h2 class="modal-heading"></h2>
+          <p class="modal-byline"></p>
           <div class="modal-article-content"></div>
         </div>
       </div>
@@ -225,7 +230,7 @@
 
       <div
         class="article"
-        data-content="In aa surprising discovery, a team of Earth prospectors have found evidence of two rival factions living harmoniously under the surface of Fleckzler-B12, a Hazzlebopian owned planet, famous for its abnormally abundant Bojangle growth.\n\n
+        data-content="In a surprising discovery, a team of Earth prospectors have found evidence of two rival factions living harmoniously under the surface of Fleckzler-B12, a Hazzlebopian owned planet, famous for its abnormally abundant Bojangle growth.\n\n
 
         The two groups are Zoombala Fans and Glitterati Enjoyers, who have been at war for decades over their respective musical preferences. Zoombalas are mechanically functioning drums that produce a loud thumping sound and emit an acidic aroma, while Glitteratis are electronic devices that produce a loud monotone note and emit a dazzling light show. Both instruments are considered highly irritating by most sentient beings.\n\n
         
@@ -303,6 +308,7 @@
         const closeModal = document.querySelector(".close");
         const modalHeaderImage = document.querySelector(".modal-header-image");
         const modalHeading = document.querySelector(".modal-heading");
+
         const modalArticleContent = document.querySelector(
           ".modal-article-content"
         );
@@ -319,6 +325,8 @@
               .getAttribute("src");
             modalHeaderImage.setAttribute("src", articleImageSrc);
             modalHeading.textContent = article.querySelector("h2").textContent;
+            const byline = article.querySelector("em").textContent;
+            modal.querySelector(".modal-byline").textContent = byline;
             modalArticleContent.innerHTML = articleContent;
           });
         });
