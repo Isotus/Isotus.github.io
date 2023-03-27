@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Spelling Game</title>
+</head>
+<body>
+    <h1>Spelling Game</h1>
+    <p>Is the word spelled correctly?</p>
+    <p id="word"></p>
+    <input type="text" id="answer">
+    <button onclick="checkAnswer()">Submit</button>
+    <p id="result"></p>
+
+    <script>
+        let words = [
+            {display: "apple", actual: "apple"},
+            {display: "banana", actual: "banana"},
+            {display: "oraneg", actual: "orange"},
+            {display: "strawbery", actual: "strawberry"}
+        ];
+        let currentWord = "";
+
+        function newWord() {
+            currentWord = words[Math.floor(Math.random() * words.length)];
+            document.getElementById("word").innerHTML = currentWord.display;
+        }
+
+        function checkAnswer() {
+            let answer = document.getElementById("answer").value;
+            if (answer === currentWord.actual) {
+                document.getElementById("result").innerHTML = "Correct!";
+            } else {
+                document.getElementById("result").innerHTML = "Incorrect. The correct spelling is: " + currentWord.actual;
+            }
+            newWord();
+        }
+
+        newWord();
+    </script>
+</body>
+</html>
