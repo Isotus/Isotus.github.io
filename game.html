@@ -5,35 +5,59 @@
   </head>
   <body>
     <h1>Spelling Game</h1>
-    <p>Is the word spelled correctly?</p>
+    <p>
+      Type the correct spelling of the word or leave it blank if it’s already
+      correct.
+    </p>
     <p id="word"></p>
-    <input type="text" id="answer" />
-    <button onclick="checkAnswer()">Submit</button>
+    <input
+      type="text"
+      id="answer"
+      onkeydown="if (event.keyCode == 13) checkAnswer()"
+    />
+    <button onclick="checkAnswer()">Submit (or enter key)</button>
     <p id="result"></p>
+    <p>Score: <span id="score">0</span></p>
 
     <script>
       let words = [
-        { display: "apple", actual: "apple" },
-        { display: "banana", actual: "banana" },
-        { display: "oraneg", actual: "orange" },
-        { display: "strawbery", actual: "strawberry" },
+        { correct: "apple", incorrect: "aple" },
+        { correct: "banana", incorrect: "bananna" },
+        { correct: "orange", incorrect: "oraneg" },
+        { correct: "strawberry", incorrect: "strawbery" },
       ];
       let currentWord = "";
+      let currentDisplay = "";
+      let score = 0;
 
       function newWord() {
         currentWord = words[Math.floor(Math.random() * words.length)];
-        document.getElementById("word").innerHTML = currentWord.display;
+        if (Math.random() < 0.5) {
+          currentDisplay = currentWord.correct;
+          document.getElementById("word").innerHTML = currentDisplay;
+        } else {
+          currentDisplay = currentWord.incorrect;
+          document.getElementById("word").innerHTML = currentDisplay;
+        }
       }
 
       function checkAnswer() {
         let answer = document.getElementById("answer").value;
-        if (answer === currentWord.actual) {
+        if (answer === "" && currentDisplay === currentWord.correct) {
           document.getElementById("result").innerHTML = "Correct!";
+          score++;
+          document.getElementById("score").innerHTML = score;
+        } else if (answer === currentWord.correct) {
+          document.getElementById("result").innerHTML = "Correct!";
+          score++;
+          document.getElementById("score").innerHTML = score;
         } else {
-          document.getElementById("result").innerHTML =
-            "Incorrect. The correct spelling is: " + currentWord.actual;
+          document.getElementById("result").innerHTML = "Incorrect.";
+          score = 0;
+          document.getElementById("score").innerHTML = score;
         }
         newWord();
+        document.getElementById("answer").value = "";
       }
 
       newWord();
