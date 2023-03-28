@@ -2,11 +2,53 @@
 <html>
   <head>
     <title>Spelling Game</title>
+    <style>
+      body {
+        font-family: lato, sans-serif;
+        margin: 0;
+        padding: 0;
+      }
+
+      h1 {
+        background-color: #4caf50;
+        color: white;
+        margin: 0;
+        padding: 20px;
+        text-align: center;
+      }
+
+      #score-container {
+        float: right;
+        margin: 20px;
+      }
+
+      #word {
+        clear: both;
+        font-size: 24px;
+        margin: 20px 0;
+        text-align: center;
+      }
+
+      #answer {
+        display: block;
+        font-size: 18px;
+        margin: 0 auto 20px auto;
+        padding: 10px;
+        width: 50%;
+      }
+
+      #result {
+        font-size: 18px;
+        margin-bottom: 20px;
+        text-align: center;
+      }
+    </style>
   </head>
   <body>
     <h1>Spelling Game</h1>
+    <div id="score-container">Score: <span id="score">0</span></div>
     <p>
-      Type the correct spelling of the word or leave it blank if it’s already
+      Type the correct spelling of the word or leave it blank if it's already
       correct.
     </p>
     <p id="word"></p>
@@ -15,9 +57,7 @@
       id="answer"
       onkeydown="if (event.keyCode == 13) checkAnswer()"
     />
-    <button onclick="checkAnswer()">Submit (or enter key)</button>
     <p id="result"></p>
-    <p>Score: <span id="score">0</span></p>
 
     <script>
       let words = [
@@ -52,7 +92,8 @@
           score++;
           document.getElementById("score").innerHTML = score;
         } else {
-          document.getElementById("result").innerHTML = "Incorrect.";
+          document.getElementById("result").innerHTML =
+            "Incorrect. The correct spelling is: " + currentWord.correct;
           score = 0;
           document.getElementById("score").innerHTML = score;
         }
