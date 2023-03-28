@@ -59,6 +59,9 @@
     />
     <p id="result"></p>
 
+    <!-- Add an iframe element to embed the second game in your page -->
+    <iframe src="path/to/second/game.html" width="600" height="400"></iframe>
+
     <script>
       let words = [
         { correct: "apple", incorrect: "aple" },
@@ -92,7 +95,8 @@
           score++;
           document.getElementById("score").innerHTML = score;
         } else {
-          document.getElementById("result").innerHTML = "Incorrect!";
+          document.getElementById("result").innerHTML =
+            "Incorrect. The correct spelling is: " + currentWord.correct;
           score = 0;
           document.getElementById("score").innerHTML = score;
         }
