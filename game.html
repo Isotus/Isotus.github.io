@@ -59,16 +59,242 @@
     />
     <p id="result"></p>
 
-    <!-- Add an iframe element to embed the second game in your page -->
-    <iframe src="tetris.html" width="600" height="400"></iframe>
-
     <script>
       let words = [
-        { correct: "apple", incorrect: "aple" },
-        { correct: "banana", incorrect: "bananna" },
-        { correct: "orange", incorrect: "oraneg" },
-        { correct: "strawberry", incorrect: "strawbery" },
+        {
+          correct: "apple",
+          incorrect: "aple",
+        },
+        {
+          correct: "banana",
+          incorrect: "bananna",
+        },
+        {
+          correct: "orange",
+          incorrect: "oraneg",
+        },
+        {
+          correct: "strawberry",
+          incorrect: "strawbery",
+        },
+        {
+          correct: "absence",
+          incorrect: "abscence",
+        },
+        {
+          correct: "accidentally",
+          incorrect: "accidently",
+        },
+        {
+          correct: "accommodate",
+          incorrect: "acommodate",
+        },
+        {
+          correct: "acquired",
+          incorrect: "aquired",
+        },
+        {
+          correct: "actually",
+          incorrect: "actully",
+        },
+        {
+          correct: "advertisement",
+          incorrect: "advertisment",
+        },
+        {
+          correct: "amateur",
+          incorrect: "amature",
+        },
+        {
+          correct: "attendance",
+          incorrect: "attendence",
+        },
+        {
+          correct: "beginning",
+          incorrect: "begining",
+        },
+        {
+          correct: "believe",
+          incorrect: "beleive",
+        },
+        {
+          correct: "benefit",
+          incorrect: "benifit",
+        },
+        {
+          correct: "business",
+          incorrect: "buisness",
+        },
+        {
+          correct: "certain",
+          incorrect: "certian",
+        },
+        {
+          correct: "committee",
+          incorrect: "commitee",
+        },
+        {
+          correct: "completely",
+          incorrect: "completly",
+        },
+        {
+          correct: "condemn",
+          incorrect: "condem",
+        },
+        {
+          correct: "conscious",
+          incorrect: "concious",
+        },
+        {
+          correct: "convenient",
+          incorrect: "conveniant",
+        },
+        {
+          correct: "criticise",
+          incorrect: "criticize",
+        },
+        {
+          correct: "decision",
+          incorrect: "decison",
+        },
+        {
+          correct: "definite",
+          incorrect: "definate",
+        },
+        {
+          correct: "definitely",
+          incorrect: "definately",
+        },
+        {
+          correct: "description",
+          incorrect: "discription",
+        },
+        {
+          correct: "desirable",
+          incorrect: "desireable",
+        },
+        {
+          correct: "desperate",
+          incorrect: "desparate",
+        },
+        {
+          correct: "difference",
+          incorrect: "diference",
+        },
+        {
+          correct: "difficulty",
+          incorrect: "difficulity",
+        },
+        {
+          correct: "disappoint",
+          incorrect: "dissapoint",
+        },
+        {
+          correct: "embarrass",
+          incorrect: "embarass",
+        },
+        {
+          correct: "employees",
+          incorrect: "employes",
+        },
+        {
+          correct: "environment",
+          incorrect: "enviroment",
+        },
+        {
+          correct: "equipped",
+          incorrect: "equipt",
+        },
+        {
+          correct: "exaggerate",
+          incorrect: "exagerate",
+        },
+        {
+          correct: "excellent",
+          incorrect: "excelent",
+        },
+        {
+          correct: "excessive",
+          incorrect: "exessive",
+        },
+        {
+          correct: "existence",
+          incorrect: "existance",
+        },
+        {
+          correct: "expense",
+          incorrect: "expence",
+        },
+        {
+          correct: "experience",
+          incorrect: "experiance",
+        },
+        {
+          correct: "familiar",
+          incorrect: "familar",
+        },
+        {
+          correct: "fascinate",
+          incorrect: "facinate",
+        },
+        {
+          correct: "February",
+          incorrect: "Febuary",
+        },
+        {
+          correct: "fifteen",
+          incorrect: "fithteen",
+        },
+        {
+          correct: "financial",
+          incorrect: "finacial",
+        },
+        {
+          correct: "foreign",
+          incorrect: "foriegn",
+        },
+        {
+          correct: "fortunately",
+          incorrect: "fortunatly",
+        },
+        {
+          correct: "government",
+          incorrect: "goverment",
+        },
+        {
+          correct: "guarantee",
+          incorrect: "gaurantee",
+        },
+        {
+          correct: "guidance",
+          incorrect: "guidence",
+        },
+        {
+          correct: "harassment",
+          incorrect: "harrassment",
+        },
+        {
+          correct: "humorous",
+          incorrect: "humourous",
+        },
+        {
+          correct: "imaginary",
+          incorrect: "imaginery",
+        },
+        {
+          correct: "immediately",
+          incorrect: "immediatly",
+        },
+        {
+          correct: "immensely",
+          incorrect: "imensely",
+        },
+        {
+          correct: "independent",
+          incorrect: "independant",
+        },
       ];
+
       let currentWord = "";
       let currentDisplay = "";
       let score = 0;
