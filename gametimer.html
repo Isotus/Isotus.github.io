@@ -66,6 +66,61 @@
     />
     <p id="result"></p>
 
+    <div id="numbers-container"></div>
+
+    <script>
+      let currentNumber = 1;
+
+      function generateNumbers() {
+        // Clear any existing numbers
+        document.getElementById("numbers-container").innerHTML = "";
+
+        // Generate numbers 1-9 in random order
+        let numbers = [1, 2];
+        numbers.sort(() => Math.random() - 0.5);
+
+        // Create a new div element for each number and append it to the numbers-container div
+        for (let i = 0; i < numbers.length; i++) {
+          let numberElement = document.createElement("div");
+          numberElement.innerHTML = numbers[i];
+          numberElement.style.position = "absolute";
+          numberElement.style.left =
+            Math.random() * (window.innerWidth - 50) + "px";
+          numberElement.style.top =
+            Math.random() * (window.innerHeight - 50) + "px";
+          numberElement.style.width = "50px";
+          numberElement.style.height = "50px";
+          numberElement.style.cursor = "pointer";
+          numberElement.style.textAlign = "center";
+          numberElement.style.lineHeight = "50px";
+          numberElement.style.border = "1px solid black";
+          numberElement.onclick = () => {
+            if (numbers[i] === currentNumber) {
+              currentNumber++;
+              if (currentNumber > 2) {
+                currentNumber = 1;
+                score += 10;
+                document.getElementById("score").innerHTML = score;
+              }
+              numberElement.style.display = "none";
+            } else {
+              score = 0;
+              timer = 0;
+              document.getElementById("timer").innerHTML = timer;
+              document.getElementById("score").innerHTML = score;
+              currentNumber = 1;
+              document.getElementById("numbers-container").innerHTML = "";
+            }
+          };
+          document
+            .getElementById("numbers-container")
+            .appendChild(numberElement);
+        }
+      }
+
+      setInterval(generateNumbers, 3 * 1000);
+    </script>
+
     <script>
       let words = [
         {
@@ -336,10 +391,10 @@
         } else {
           document.getElementById("result").innerHTML =
             "Incorrect. The correct spelling is: " + currentWord.correct;
-          score = 0;
           timer = 0;
           document.getElementById("timer").innerHTML = timer;
 
+          score = 0;
           document.getElementById("score").innerHTML = score;
         }
         newWord();
