@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <canvas
+      id="myCanvas"
+      width="200"
+      height="200"
+      style="border: 1px solid #d3d3d3"
+    >
+      Your browser does not support the HTML5 canvas tag.</canvas
+    >
+
+    <script>
+      var canvas = document.getElementById("myCanvas");
+      var ctx = canvas.getContext("2d");
+
+      function randomizeLine() {
+        var bend = Math.floor(Math.random() * 10) + 1;
+        var curve = Math.floor(Math.random() * 10) + 1;
+        var stretch = Math.floor(Math.random() * 10) + 1;
+
+        ctx.beginPath();
+        ctx.moveTo(0, 50);
+
+        // Add loops
+        ctx.bezierCurveTo(
+          bend * 10,
+          curve * 10,
+          stretch * 10,
+          curve * 10,
+          bend * 20,
+          curve * 20
+        );
+        ctx.bezierCurveTo(
+          stretch * 20,
+          curve * 30,
+          bend * 30,
+          curve * 40,
+          stretch * 40,
+          curve * 50
+        );
+
+        // Add sharp long and thin protrusions
+        ctx.bezierCurveTo(
+          bend * 30,
+          curve * 60,
+          stretch * 20,
+          curve * 70,
+          bend * 10,
+          curve * 80
+        );
+        ctx.bezierCurveTo(
+          stretch * 5,
+          curve * 90,
+          bend * 15,
+          curve * 100,
+          stretch * 20,
+          curve * 110
+        );
+
+        // Add more loops
+        ctx.bezierCurveTo(
+          bend * 30,
+          curve * 120,
+          stretch * 40,
+          curve * 130,
+          bend * 50,
+          curve * 140
+        );
+        ctx.bezierCurveTo(
+          stretch * 60,
+          curve * 150,
+          bend * 70,
+          curve * 160,
+          stretch * 80,
+          curve * 170
+        );
+
+        // Add more sharp long and thin protrusions
+        ctx.bezierCurveTo(
+          bend * 90,
+          curve * 180,
+          stretch * 100,
+          curve * 190,
+          bend * 110,
+          curve * 200
+        );
+
+        ctx.stroke();
+      }
+
+      for (var i = 0; i < 5; i++) {
+        for (var j = 0; j < 5; j++) {
+          randomizeLine();
+          ctx.translate(40 * (j + 1), 0);
+        }
+        ctx.translate(-200, -40 * (i + 1));
+      }
+    </script>
+  </body>
+</html>
