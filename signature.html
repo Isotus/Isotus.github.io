@@ -1,20 +1,8 @@
 <!DOCTYPE html>
 <html>
   <body>
-    <canvas
-      id="myCanvas"
-      width="200"
-      height="200"
-      style="border: 1px solid #d3d3d3"
-    >
-      Your browser does not support the HTML5 canvas tag.</canvas
-    >
-
     <script>
-      var canvas = document.getElementById("myCanvas");
-      var ctx = canvas.getContext("2d");
-
-      function randomizeLine() {
+      function randomizeLine(ctx, step) {
         var bend = Math.floor(Math.random() * 10) + 1;
         var curve = Math.floor(Math.random() * 10) + 1;
         var stretch = Math.floor(Math.random() * 10) + 1;
@@ -91,10 +79,25 @@
 
       for (var i = 0; i < 5; i++) {
         for (var j = 0; j < 5; j++) {
-          randomizeLine();
+          var canvas = document.createElement("canvas");
+          canvas.width = "200";
+          canvas.height = "200";
+          canvas.style.border = "1px solid #d3d3d3";
+          document.body.appendChild(canvas);
+          var ctx = canvas.getContext("2d");
+          randomizeLine(ctx, j + i + 1);
           ctx.translate(40 * (j + 1), 0);
         }
-        ctx.translate(-200, -40 * (i + 1));
+        for (var j = 0; j < 5; j++) {
+          var canvas = document.createElement("canvas");
+          canvas.width = "200";
+          canvas.height = "200";
+          canvas.style.border = "1px solid #d3d3d3";
+          document.body.appendChild(canvas);
+          var ctx = canvas.getContext("2d");
+          randomizeLine(ctx, j + i + 6);
+          ctx.translate(-200, -40 * (j + 1));
+        }
       }
     </script>
   </body>
