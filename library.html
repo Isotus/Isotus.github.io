@@ -1,120 +1,51 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<title>ChatGPT Prompts</title>
-	<style>
-		.container {
-			display: flex;
-			flex-wrap: wrap;
-			max-width: 600px;
-			margin: 0 auto;
-		}
+  <head>
+    <title>ChatGPT Prompts</title>
+    <style>
+      .container {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 10px;
+        max-width: 600px;
+        margin: 0 auto;
+      }
 
-		.box {
-			border: 1px solid black;
-			box-sizing: border-box;
-			height: 100px;
-			width: calc(33.33% - 2px);
-			margin: 5px;
-			padding: 10px;
-			cursor: pointer;
-			overflow: hidden;
-			text-overflow: ellipsis;
-			white-space: nowrap;
-		}
+      .box {
+        border: 1px solid black;
+        box-sizing: border-box;
+        height: 100px;
+        padding: 10px;
+        cursor: pointer;
+        user-select: none;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="box" data-text="Prompt 1 Text">Prompt 1</div>
+      <div class="box" data-text="Prompt 2 Text">Prompt 2</div>
+      <div class="box" data-text="Prompt 3 Text">Prompt 3</div>
+      <div class="box" data-text="Prompt 4 Text">Prompt 4</div>
+      <div class="box" data-text="Prompt 5 Text">Prompt 5</div>
+      <div class="box" data-text="Prompt 6 Text">Prompt 6</div>
+    </div>
 
-		.box:last-child {
-			border: 1px dashed black;
-			background-color: #f2f2f2;
-		}
+    <script>
+      // Get all boxes
+      var boxes = document.querySelectorAll(".box");
 
-		.modal {
-			display: none;
-			position: fixed;
-			top: 0;
-			left: 0;
-			width: 100%;
-			height: 100%;
-			background-color: rgba(0, 0, 0, 0.5);
-			z-index: 999;
-			align-items: center;
-			justify-content: center;
-		}
-
-		.modal-content {
-			background-color: white;
-			padding: 20px;
-			border-radius: 5px;
-			max-width: 400px;
-			text-align: center;
-		}
-
-		.modal-close {
-			position: absolute;
-			top: 10px;
-			right: 10px;
-			cursor: pointer;
-		}
-
-		.prompt-input {
-			display: block;
-			width: 100%;
-			margin-bottom: 10px;
-			padding: 5px;
-			border: 1px solid black;
-			box-sizing: border-box;
-			border-radius: 5px;
-		}
-
-		.button {
-			display: inline-block;
-			padding: 10px;
-			background-color: #008CBA;
-			color: white;
-			border: none;
-			border-radius: 5px;
-			cursor: pointer;
-		}
-
-		.button:hover {
-			background-color: #006F8E;
-		}
-
-		.prompt-delete {
-			position: absolute;
-			top: 5px;
-			right: 5px;
-			cursor: pointer;
-		}
-	</style>
-</head>
-<body>
-	<div class="container">
-		<div class="box">Prompt 1</div>
-		<div class="box">Prompt 2</div>
-		<div class="box add-prompt">+</div>
-	</div>
-
-	<div class="modal">
-		<div class="modal-content">
-			<span class="modal-close">&times;</span>
-			<label for="prompt-input">Enter a new prompt:</label>
-			<input type="text" id="prompt-input" class="prompt-input">
-			<button id="save-prompt" class="button">Save</button>
-		</div>
-	</div>
-
-	<script>
-		// Check if localStorage is supported
-		if (typeof(Storage) !== "undefined") {
-			// Retrieve prompts from localStorage or initialize an empty array
-			var prompts = JSON.parse(localStorage.getItem("prompts")) || [];
-
-			// Display existing prompts
-			for (var i = 0; i < prompts.length; i++) {
-				var box = document.createElement("div");
-				box.classList.add("box");
-				box.textContent = prompts[i];
-				box.setAttribute("draggable", true);
-				box.dataset.index = i;
-				box.innerHTML += '<span class="prompt-delete">&times;</span
+      // Add click event listener to each box
+      boxes.forEach(function (box) {
+        box.addEventListener("click", function () {
+          // Copy text content of box to clipboard
+          var text = this.dataset.text;
+          navigator.clipboard.writeText(text);
+        });
+      });
+    </script>
+  </body>
+</html>
