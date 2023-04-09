@@ -57,11 +57,59 @@
         color: #3F4739(0, 0, 0);
         padding: 10px 20px;
         border-radius: 10px;
+        transition: animation-play-state 0.5s ease-out;
       }
 
       .nav-link:hover {
         background-color: #eadeda;
         opacity: 0.6;
+        animation: spin 30s infinite paused;
+      }
+
+      @keyframes spin {
+        0% {
+          transform: rotate(0deg);
+          animation-timing-function: ease-in;
+        }
+
+        10% {
+          animation-timing-function: linear;
+          opacity: 0.2; /* reduced opacity */
+        }
+        25% {
+          background-color: #ff2400; /* fire red */
+          opacity: 0.4; /* reduced opacity */
+        }
+        50% {
+          background-color: #ff4c00; /* fire orange */
+          opacity: 0.6; /* reduced opacity */
+        }
+        75% {
+          background-color: #ff9600; /* fire yellow */
+          opacity: 0.8; /* reduced opacity */
+        }
+        100% {
+          background-color: #fff8dc; /* fire white */
+          opacity: 1; /* reduced opacity */
+
+          transform: rotate(36000deg);
+          animation-timing-function: ease-out;
+        }
+      }
+
+      /* when the nav link is hovered over, play the animation and gradually increase the speed */
+      .nav-link:hover {
+        animation-play-state: running;
+        animation-timing-function: linear;
+        animation-duration: 30s;
+      }
+
+      /* when the cursor stops hovering, gradually slow down the animation to a stop */
+      .nav-link:not(:hover) {
+        animation-play-state: paused;
+        transition-delay: 0.5s; /* delay the transition by 0.5s */
+        transition-duration: 2s;
+        transition-timing-function: ease-out;
       }
     </style>
   </head>
