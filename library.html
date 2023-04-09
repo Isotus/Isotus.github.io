@@ -3,6 +3,10 @@
   <head>
     <title>ChatGPT Prompts</title>
     <style>
+      body {
+        background-color: #eadeda;
+      }
+
       .container {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
@@ -22,9 +26,45 @@
         text-overflow: ellipsis;
         white-space: nowrap;
       }
+      header {
+        background-color: #343434;
+        color: white;
+        padding: 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      nav ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+      }
+
+      nav li {
+        margin: 0 10px;
+      }
+
+      nav a {
+        color: #eadeda;
+        text-decoration: none;
+        font-weight: bold;
+      }
     </style>
   </head>
   <body>
+    <header>
+      <div id="logo">The Daily Isotus</div>
+      <nav>
+        <ul>
+          <li><a href="index.html"> IsoHome</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+    <br />
     <div class="container">
       <div class="box" data-text="Prompt 1 Text">Prompt 1</div>
       <div class="box" data-text="Prompt 2 Text">Prompt 2</div>
