@@ -17,7 +17,25 @@
       }
 
       .box {
-        border: 5px solid black;
+        cursor: pointer;
+        position: relative;
+        transition: transform 0.7s, background-color 1s;
+      }
+
+      .box:hover {
+        transform: scale(1.1);
+        background-color: #998888;
+        border-radius: 5px;
+      }
+
+      .box {
+        transform-style: preserve-3d;
+        backface-visibility: hidden;
+        text-align: center;
+      }
+
+      .box {
+        border: 3px solid black;
         box-sizing: border-box;
         height: 100px;
         padding: 10px;
@@ -26,7 +44,8 @@
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;
-        border-color: #343434;
+        border-color: #3f4739;
+        border-radius: 5px;
       }
       header {
         background-color: #343434;
