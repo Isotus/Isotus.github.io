@@ -11,27 +11,15 @@
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         grid-gap: 10px;
-        max-width: 600px;
+        max-width: 80%;
         margin: 0 auto;
         color: #343434;
-      }
-
-      .box {
-        cursor: pointer;
-        position: relative;
-        transition: transform 0.7s, background-color 1s;
       }
 
       .box:hover {
         transform: scale(1.1);
         background-color: #998888;
         border-radius: 5px;
-      }
-
-      .box {
-        transform-style: preserve-3d;
-        backface-visibility: hidden;
-        text-align: center;
       }
 
       .box {
@@ -46,6 +34,12 @@
         white-space: nowrap;
         border-color: #3f4739;
         border-radius: 5px;
+        transform-style: preserve-3d;
+        backface-visibility: hidden;
+        text-align: center;
+        cursor: pointer;
+        position: relative;
+        transition: transform 0.7s, background-color 1s;
       }
       header {
         background-color: #343434;
