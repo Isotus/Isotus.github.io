@@ -25,7 +25,6 @@
         user-select: none;
         overflow: hidden;
         text-overflow: ellipsis;
-        white-space: nowrap;
         border-color: #3f4739;
         border-radius: 5px;
         transform-style: preserve-3d;
@@ -35,9 +34,10 @@
         position: relative;
         transition: transform 0.7s, background-color 1s;
         display: flex;
+        overflow-wrap: break-word;
         justify-content: center;
         align-items: center;
-        font-size: calc(10px + 1.618vw);
+        font-size: calc(10px + 2vw);
       }
 
       .box:hover {
@@ -90,7 +90,16 @@
     <br />
     <div class="container">
       <div class="box" data-text="Prompt 1 Text">Prompt 1</div>
-      <div class="box" data-text="Prompt 2 Text">Prompt 2</div>
+      <div
+        class="box"
+        data-text="I want you to become my Prompt engineer. Your goal is to help me craft the best possible list of prompts to serve my need. All output from you should be in Australian English. The prompt will be used by you, ChatGPT. You will follow the following process:
+
+      1. Your first response will be to ask me what the prompt should be about. I will provide my answer, but we will need to improve it through continual iterations by going through the next steps.
+      2. Based on my input, you will generate 3 sections. a) Revised prompt (provide your rewritten prompt. it should be clear, concise, and easily understood by you), b) Prompt list (you will split the revised prompt up into a series of smaller 'step' prompts, that can be answered in this order to complete the overall revised prompt.) c) Questions (ask any relevant questions pertaining to what additional information is needed from me to improve the prompt and prompt list).
+      3. We will continue this iterative process with me providing additional information to you and you updating the prompts in the Revised prompt section and the Prompt list section until I say we are done."
+      >
+        Prompt Engineer (List)
+      </div>
       <div class="box" data-text="Prompt 3 Text">Prompt 3</div>
       <div class="box" data-text="Prompt 4 Text">Prompt 4</div>
       <div class="box" data-text="Prompt 5 Text">Prompt 5</div>
