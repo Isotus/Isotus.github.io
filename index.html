@@ -138,25 +138,12 @@
       }
     </style>
     <script>
-      // get the search form and search input
       const searchForm = document.querySelector("#search-form");
-      const searchInput = document.querySelector("#search-input");
-
-      // add event listener to search form for form submission
-      searchForm.addEventListener("submit", function (event) {
-        // prevent the default form submission behavior
-        event.preventDefault();
-
-        // get the search query from the input
-        const query = searchInput.value;
-
-        // construct the Google search URL
-        const googleUrl = `https://www.google.com/search?q=${encodeURIComponent(
-          query
-        )}`;
-
-        // redirect the current page to the Google search URL
-        window.location.href = googleUrl;
+      searchForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const searchTerm = document.querySelector("#search-input").value;
+        const searchUrl = `https://www.google.com/search?q=${searchTerm}`;
+        window.location.href = searchUrl;
       });
     </script>
   </head>
