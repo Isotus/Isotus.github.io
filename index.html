@@ -63,9 +63,7 @@
         background-color: #eadeda;
         opacity: 0.6;
       }
-    </style>
 
-    <style>
       .search-box {
         font-size: 20px;
         border: solid 0.3em #000000;
@@ -137,7 +135,6 @@
         transition: transform 150ms ease-out, opacity 150ms ease-out;
       }
     </style>
-    <script></script>
   </head>
   <body>
     <div class="container">
@@ -146,22 +143,10 @@
       </h1>
 
       <h2><s>insanity</s> postmodernity</h2>
-
-      <form action="https://www.google.com/search" method="GET">
-        <div class="search-container">
-          <input
-            type="text"
-            placeholder="Search Google..."
-            name="q"
-            class="search-box"
-            required
-          />
-          <button type="submit" class="search-button">
-            <i class="fa fa-search"></i>
-          </button>
-        </div>
+      <form class="search-box" action="https://www.google.com/search">
+        <input type="text" placeholder=" " name="q" />
+        <button type="reset"></button>
       </form>
-
       <div class="navbar">
         <a href="news.html" class="nav-link">News</a>
         <a href="signature.html" class="nav-link">Signatures</a>
