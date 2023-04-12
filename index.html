@@ -137,6 +137,7 @@
         transition: transform 150ms ease-out, opacity 150ms ease-out;
       }
     </style>
+    <script></script>
   </head>
   <body>
     <div class="container">
@@ -146,9 +147,19 @@
 
       <h2><s>insanity</s> postmodernity</h2>
 
-      <form action="https://www.google.com/search" method="get" target="_blank">
-        <input type="text" name="q" placeholder="Search Google..." />
-        <button type="submit">Search</button>
+      <form action="https://www.google.com/search" method="GET">
+        <div class="search-container">
+          <input
+            type="text"
+            placeholder="Search Google..."
+            name="q"
+            class="search-box"
+            required
+          />
+          <button type="submit" class="search-button">
+            <i class="fa fa-search"></i>
+          </button>
+        </div>
       </form>
 
       <div class="navbar">
