@@ -136,178 +136,17 @@
       }
     </style>
 
-
-      <html>
-  <head>
-    <title>IsoHome</title>
-    <style>
-      @import url("https://fonts.googleapis.com/css?family=Roboto:300,400,550,700");
-      @import url("https://fonts.googleapis.com/css?family=Lato:300,400,550,700");
-      @import url("https://fonts.googleapis.com/css2?family=Tilt+Neon&display=swap");
-      @import url("https://fonts.googleapis.com/css2?family=Baumans&display=swap");
-
-      body {
-        background-color: #5a2555;
-      }
-
-      .container {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        height: 100vh;
-      }
-      h1 {
-        font-family: "Baumans";
-        color: #343434;
-        font-size: 5em;
-        font-weight: 700;
-        text-shadow: 2px 2px 4px #000000;
-      }
-
-      h1 a {
-        color: inherit;
-        text-decoration: inherit;
-      }
-
-      h2 {
-        font-family: "Baumans";
-        color: #343434;
-        font-size: 3em;
-        font-weight: 550;
-        text-shadow: 1px 1px 2px #000000;
-      }
-
-      .navbar {
-        display: flex;
-        align-items: center;
-        justify-content: space-around;
-        width: 80%;
-        margin-top: 20px;
-      }
-
-      .nav-link {
-        font-family: "Lato", sans-serif;
-        color: #343434;
-        font-size: 2em;
-        font-weight: 400;
-        text-shadow: 1px 1px 2px #000000;
-        text-decoration: none;
-        color: #3F4739(0, 0, 0);
-        padding: 10px 20px;
-        border-radius: 10px;
-      }
-
-      .nav-link:hover {
-        background-color: #eadeda;
-        opacity: 0.6;
-      }
-      
-   .search-box {
-  font-size: 20px;
-  border: solid 0.3em #000000;
-  display: inline-block;
-  position: relative;
-  border-radius: 2.5em;
-}
-.search-box input[type="text"] {
-  font-family: inherit;
-  font-weight: bold;
-  width: 2.5em;
-  height: 2.5em;
-  padding: 0.3em 2.1em 0.3em 0.4em;
-  border: none;
-  box-sizing: border-box;
-  border-radius: 2.5em;
-  transition: width 800ms cubic-bezier(0.68, -0.55, 0.27, 1.55) 150ms;
-}
-.search-box input[type="text"]:focus {
-  outline: none;
-}
-.search-box input[type="text"]:focus, .search-box input[type="text"]:not(:placeholder-shown) {
-  width: 18em;
-  transition: width 800ms cubic-bezier(0.68, -0.55, 0.27, 1.55);
-}
-.search-box input[type="text"]:focus + button[type="reset"], .search-box input[type="text"]:not(:placeholder-shown) + button[type="reset"] {
-  transform: rotate(-45deg) translateY(0);
-  transition: transform 150ms ease-out 800ms;
-}
-.search-box input[type="text"]:focus + button[type="reset"]:after, .search-box input[type="text"]:not(:placeholder-shown) + button[type="reset"]:after {
-  opacity: 1;
-  transition: top 150ms ease-out 950ms, right 150ms ease-out 950ms, opacity 150ms ease 950ms;
-}
-.search-box button[type="reset"] {
-  background-color: transparent;
-  width: 1.4em;
-  height: 1.4em;
-  border: 0;
-  padding: 0;
-  outline: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: absolute;
-  top: 0.55em;
-  right: 0.55em;
-  transform: rotate(-45deg) translateY(2.2em);
-  transition: transform 150ms ease-out 150ms;
-}
-.search-box button[type="reset"]:before, .search-box button[type="reset"]:after {
-  content: "";
-  background-color: #000000;
-  width: 0.3em;
-  height: 1.4em;
-  position: absolute;
-}
-.search-box button[type="reset"]:after {
-  transform: rotate(90deg);
-  opacity: 0;
-  transition: transform 150ms ease-out, opacity 150ms ease-out;
-}
-
-
-    </style>
-    
     <script>
-const searchBox = document.querySelector('.search-box');
-let isFocused = false;
+      const searchBox = document.querySelector(".search-box");
+      let isFocused = false;
 
-document.addEventListener('keypress', (event) => {
-  if (!isFocused) {
-    searchBox.focus();
-    isFocused = true;
-  }
-  searchBox.value += event.key;
-});
-
-</script>
-
-  </head>
-  <body>
-    <div class="container">
-      <h1>
-        <a href="goofy.html">isotus</a>
-      </h1>
-
-      <h2><s>insanity</s> postmodernity</h2>
-      <form class="search-box" action="https://www.google.com/search">
-  <input type="text" placeholder=" " name="q" autocomplete="off" autofocus>
-  <button type="reset"></button>
-</form>
-      <div class="navbar">
-        <a href="news.html" class="nav-link">News</a>
-        <a href="signature.html" class="nav-link">Signatures</a>
-        <a href="library.html" class="nav-link">ChatGPT Prompt Library</a>
-        <a href="gametimer.html" class="nav-link">Timer Game</a>
-        <a href="game.html" class="nav-link">Game</a>
-      
-
-
-      </div>
-    </div>
-  </body>
-</html>
-
+      document.addEventListener("keypress", (event) => {
+        if (!isFocused) {
+          searchBox.focus();
+          isFocused = true;
+        }
+        searchBox.value += event.key;
+      });
     </script>
   </head>
   <body>
@@ -318,7 +157,13 @@ document.addEventListener('keypress', (event) => {
 
       <h2><s>insanity</s> postmodernity</h2>
       <form class="search-box" action="https://www.google.com/search">
-        <input type="text" placeholder=" " name="q" autocomplete="off" />
+        <input
+          type="text"
+          placeholder=" "
+          name="q"
+          autocomplete="off"
+          autofocus
+        />
         <button type="reset"></button>
       </form>
       <div class="navbar">
