@@ -126,7 +126,7 @@
       .search-box button[type="reset"]:before,
       .search-box button[type="reset"]:after {
         content: "";
-        background-color: #fff;
+        background-color: #000000;
         width: 0.3em;
         height: 1.4em;
         position: absolute;
@@ -138,14 +138,25 @@
       }
     </style>
     <script>
-      const searchForm = document.querySelector("form");
-      const searchInput = document.querySelector('input[type="search"]');
+      // get the search form and search input
+      const searchForm = document.querySelector("#search-form");
+      const searchInput = document.querySelector("#search-input");
 
-      searchForm.addEventListener("submit", (e) => {
-        e.preventDefault();
-        const searchTerm = searchInput.value;
-        const searchUrl = `https://www.google.com/search?q=${searchTerm}`;
-        window.location.href = searchUrl;
+      // add event listener to search form for form submission
+      searchForm.addEventListener("submit", function (event) {
+        // prevent the default form submission behavior
+        event.preventDefault();
+
+        // get the search query from the input
+        const query = searchInput.value;
+
+        // construct the Google search URL
+        const googleUrl = `https://www.google.com/search?q=${encodeURIComponent(
+          query
+        )}`;
+
+        // redirect the current page to the Google search URL
+        window.location.href = googleUrl;
       });
     </script>
   </head>
