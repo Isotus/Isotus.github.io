@@ -137,6 +137,17 @@
         transition: transform 150ms ease-out, opacity 150ms ease-out;
       }
     </style>
+    <script>
+      const searchForm = document.querySelector("form");
+      const searchInput = document.querySelector('input[type="search"]');
+
+      searchForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const searchTerm = searchInput.value;
+        const searchUrl = `https://www.google.com/search?q=${searchTerm}`;
+        window.location.href = searchUrl;
+      });
+    </script>
   </head>
   <body>
     <div class="container">
