@@ -243,6 +243,52 @@
       const searchBox = document.querySelector(".search-box");
       let isFocused = false;
 
+      async function submitSearch(event) {
+        event.preventDefault();
+        let words = searchBox.value.split(" ");
+        let newWords = [];
+
+        for (let i = 0; i < words.length; i++) {
+          let word = words[i];
+          let antonym = await getAntonym(word);
+          if (antonym) {
+            newWords.push(antonym);
+          } else {
+            let rhyme = await getApproximateRhyme(word);
+            newWords.push(rhyme);
+          }
+        }
+
+        let newQuery = newWords.join(" ");
+        let googleSearchUrl =
+          "https://www.google.com/search?q=" + encodeURIComponent(newQuery);
+        window.location.href = googleSearchUrl;
+      }
+
+      async function getAntonym(word) {
+        let response = await fetch(
+          "https://api.datamuse.com/words?rel_ant=" + encodeURIComponent(word)
+        );
+        let data = await response.json();
+        if (data && data.length > 0) {
+          return data[0].word;
+        } else {
+          return null;
+        }
+      }
+
+      async function getApproximateRhyme(word) {
+        let response = await fetch(
+          "https://api.datamuse.com/words?rel_nry=" + encodeURIComponent(word)
+        );
+        let data = await response.json();
+        if (data && data.length > 0) {
+          return data[0].word;
+        } else {
+          return word;
+        }
+      }
+
       document.addEventListener("keypress", (event) => {
         if (!isFocused) {
           searchBox.focus();
