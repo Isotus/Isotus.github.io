@@ -31,23 +31,24 @@
 
       // Define the animation variables
       const numShapes = 10; // Number of shapes to display
-      const colors = ["#FF5733", "#DAF7A6", "#C70039", "#900C3F", "#2980B9"]; // Array of colors to use
+      let colors = ["#FF5733", "#DAF7A6", "#C70039", "#900C3F", "#2980B9"]; // Array of colors to use
       const shapes = []; // Array to store the shapes
       let time = 0; // Current time
       let speed = 1; // Speed of the animation
 
       // Define the Shape class
+      // Define the Shape class
       class Shape {
-        constructor(color) {
-          this.color = color;
+        constructor() {
           this.size = Math.random() * 50 + 50; // Random size between 50 and 100
           this.phase = Math.random() * 2 * Math.PI; // Random phase shift between 0 and 2*pi
+          this.hue = Math.random() * 360; // Random hue between 0 and 360
         }
         draw(x, y) {
           ctx.save(); // Save the current state of the context
-          ctx.fillStyle = this.color;
+          ctx.fillStyle = `hsla(${this.hue}, 100%, 50%, 1)`;
           ctx.shadowBlur = 0; // Set the amount of blur
-          ctx.shadowColor = this.color; // Set the color of the glow
+          ctx.shadowColor = `hsla(${this.hue}, 100%, 50%, 1)`; // Set the color of the glow
           ctx.globalAlpha = 0.4; // Set the opacity of the glow
           ctx.beginPath();
           ctx.arc(x, y, this.size, 0, 2 * Math.PI);
@@ -63,6 +64,10 @@
           const y =
             canvas.height / 2 +
             amplitude * Math.cos(frequency * time + this.phase);
+          this.hue += 0.5 * delta; // Change the hue over time
+          if (this.hue >= 360) {
+            this.hue -= 360;
+          }
           this.draw(x, y);
         }
       }
