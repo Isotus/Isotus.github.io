@@ -44,19 +44,24 @@
           this.phase = Math.random() * 2 * Math.PI; // Random phase shift between 0 and 2*pi
         }
         draw(x, y) {
+          ctx.save(); // Save the current state of the context
           ctx.fillStyle = this.color;
+          ctx.shadowBlur = 0; // Set the amount of blur
+          ctx.shadowColor = this.color; // Set the color of the glow
+          ctx.globalAlpha = 0.4; // Set the opacity of the glow
           ctx.beginPath();
           ctx.arc(x, y, this.size, 0, 2 * Math.PI);
           ctx.fill();
+          ctx.restore(); // Restore the context to its previous state
         }
         update(delta) {
           const amplitude = this.size / 2;
           const frequency = 1 / this.size;
           const x =
-            window.innerWidth / 2 +
+            canvas.width / 2 +
             amplitude * Math.sin(frequency * time + this.phase);
           const y =
-            window.innerHeight / 2 +
+            canvas.height / 2 +
             amplitude * Math.cos(frequency * time + this.phase);
           this.draw(x, y);
         }
