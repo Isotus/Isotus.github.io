@@ -1,69 +1,93 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta charset="UTF-8" />
+    <title>Polyrhythm Animation</title>
     <style>
-      .shape {
-        position: absolute;
-        border-radius: 50%;
-        transition: all 1s ease-in-out;
+      body {
+        margin: 0;
+        padding: 0;
+        background-color: #222;
       }
-
-      .triangle {
-        width: 0;
-        height: 0;
-        border-left: 25px solid transparent;
-        border-right: 25px solid transparent;
-        border-bottom: 50px solid rgba(0, 0, 255, 0.8);
+      canvas {
+        display: block;
+        image-rendering: optimizeSpeed;
+        image-rendering: -moz-crisp-edges;
+        image-rendering: -webkit-optimize-contrast;
+        image-rendering: optimize-contrast;
+        -ms-interpolation-mode: nearest-neighbor;
+        image-rendering: pixelated;
       }
     </style>
   </head>
   <body>
+    <canvas id="canvas"></canvas>
     <script>
-      // Define the mathematical equations that determine the placement, sizing, and color of the shapes
-      function circleEquation(x, y) {
-        return Math.sin(x * y);
-      }
+      // Set up the canvas
+      const canvas = document.getElementById("canvas");
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+      const ctx = canvas.getContext("2d");
 
-      function squareEquation(x, y) {
-        return Math.cos(x * y);
-      }
+      // Define the animation variables
+      const numShapes = 10; // Number of shapes to display
+      const colors = ["#FF5733", "#DAF7A6", "#C70039", "#900C3F", "#2980B9"]; // Array of colors to use
+      const shapes = []; // Array to store the shapes
+      let time = 0; // Current time
+      let speed = 1; // Speed of the animation
 
-      function triangleEquation(x, y) {
-        return Math.tan(x * y);
-      }
-
-      // Create the shapes and animate them using JavaScript
-      var shapes = [];
-
-      for (var x = 0; x < 2 * Math.PI; x += 0.4) {
-        for (var y = 0; y < 2 * Math.PI; y += 0.4) {
-          var triangle = document.createElement("div");
-          triangle.className = "shape triangle";
-          triangle.style.left = 600 + triangleEquation(x, y) * 100 + "px";
-          triangle.style.top =
-            200 + triangleEquation(2 * x, 2 * y) * 100 + "px";
-          document.body.appendChild(triangle);
-          shapes.push(triangle);
+      // Define the Shape class
+      class Shape {
+        constructor(color) {
+          this.color = color;
+          this.size = Math.random() * 50 + 50; // Random size between 50 and 100
+          this.phase = Math.random() * 2 * Math.PI; // Random phase shift between 0 and 2*pi
+        }
+        draw(x, y) {
+          ctx.fillStyle = this.color;
+          ctx.beginPath();
+          ctx.arc(x, y, this.size, 0, 2 * Math.PI);
+          ctx.fill();
+        }
+        update(delta) {
+          const amplitude = this.size / 2;
+          const frequency = 1 / this.size;
+          const x =
+            window.innerWidth / 2 +
+            amplitude * Math.sin(frequency * time + this.phase);
+          const y =
+            window.innerHeight / 2 +
+            amplitude * Math.cos(frequency * time + this.phase);
+          this.draw(x, y);
         }
       }
 
-      setInterval(function () {
-        shapes.forEach(function (shape) {
-          var rotate = Math.random() * 360;
-          var scale = Math.random() * 2 + 1;
-          var color =
-            "rgba(" +
-            Math.floor(Math.random() * 256) +
-            ", " +
-            Math.floor(Math.random() * 256) +
-            ", " +
-            Math.floor(Math.random() * 256) +
-            ", 0.8)";
-          shape.style.transform =
-            "rotate(" + rotate + "deg) scale(" + scale + ")";
-          shape.style.backgroundColor = color;
+      // Create the shapes
+      for (let i = 0; i < numShapes; i++) {
+        const color = colors[Math.floor(Math.random() * colors.length)];
+        const shape = new Shape(color);
+        shapes.push(shape);
+      }
+
+      // Define the animation loop
+      function animate() {
+        // Clear the canvas
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        // Update the time
+        time += speed;
+
+        // Update and draw the shapes
+        shapes.forEach((shape) => {
+          shape.update(time);
         });
-      }, 1000);
+
+        // Request the next animation frame
+        requestAnimationFrame(animate);
+      }
+
+      // Start the animation loop
+      animate();
     </script>
   </body>
 </html>
