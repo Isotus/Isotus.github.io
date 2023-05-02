@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      .shape {
+        position: absolute;
+        border-radius: 50%;
+        transition: all 1s ease-in-out;
+      }
+      .circle {
+        width: 50px;
+        height: 50px;
+        background-color: rgba(255, 0, 0, 0.8);
+      }
+      .square {
+        width: 50px;
+        height: 50px;
+        background-color: rgba(0, 255, 0, 0.8);
+      }
+      .triangle {
+        width: 0;
+        height: 0;
+        border-left: 25px solid transparent;
+        border-right: 25px solid transparent;
+        border-bottom: 50px solid rgba(0, 0, 255, 0.8);
+      }
+    </style>
+  </head>
+  <body>
+    <script>
+      // Define the mathematical equations that determine the placement, sizing, and color of the shapes
+      function circleEquation(x, y) {
+        return Math.sin(x * y);
+      }
+
+      function squareEquation(x, y) {
+        return Math.cos(x * y);
+      }
+
+      function triangleEquation(x, y) {
+        return Math.tan(x * y);
+      }
+
+      // Create the shapes and animate them using JavaScript
+      var shapes = [];
+
+      for (var x = 0; x < 2 * Math.PI; x += 0.1) {
+        for (var y = 0; y < 2 * Math.PI; y += 0.1) {
+          var circle = document.createElement("div");
+          circle.className = "shape circle";
+          circle.style.left = 200 + circleEquation(x, y) * 100 + "px";
+          circle.style.top = 200 + circleEquation(2 * x, 3 * y) * 100 + "px";
+          document.body.appendChild(circle);
+          shapes.push(circle);
+
+          var square = document.createElement("div");
+          square.className = "shape square";
+          square.style.left = 400 + squareEquation(x, y) * 100 + "px";
+          square.style.top = 200 + squareEquation(3 * x, 2 * y) * 100 + "px";
+          document.body.appendChild(square);
+          shapes.push(square);
+
+          var triangle = document.createElement("div");
+          triangle.className = "shape triangle";
+          triangle.style.left = 600 + triangleEquation(x, y) * 100 + "px";
+          triangle.style.top =
+            200 + triangleEquation(2 * x, 2 * y) * 100 + "px";
+          document.body.appendChild(triangle);
+          shapes.push(triangle);
+        }
+      }
+
+      setInterval(function () {
+        shapes.forEach(function (shape) {
+          var rotate = Math.random() * 360;
+          var scale = Math.random() * 2 + 1;
+          var color =
+            "rgba(" +
+            Math.floor(Math.random() * 256) +
+            ", " +
+            Math.floor(Math.random() * 256) +
+            ", " +
+            Math.floor(Math.random() * 256) +
+            ", 0.8)";
+          shape.style.transform =
+            "rotate(" + rotate + "deg) scale(" + scale + ")";
+          shape.style.backgroundColor = color;
+        });
+      }, 1000);
+    </script>
+  </body>
+</html>
