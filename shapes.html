@@ -44,8 +44,8 @@
       // Create the shapes and animate them using JavaScript
       var shapes = [];
 
-      for (var x = 0; x < 2 * Math.PI; x += 0.1) {
-        for (var y = 0; y < 2 * Math.PI; y += 0.1) {
+      for (var x = 0; x < 2 * Math.PI; x += 5) {
+        for (var y = 0; y < 2 * Math.PI; y += 5) {
           var circle = document.createElement("div");
           circle.className = "shape circle";
           circle.style.left = 200 + circleEquation(x, y) * 100 + "px";
