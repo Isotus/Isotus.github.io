@@ -1,165 +1,132 @@
+<!DOCTYPE html>
 <html>
   <head>
-    <title>IsoHome</title>
+    <title>gpt4free</title>
     <style>
-      @import url("https://fonts.googleapis.com/css?family=Roboto:300,400,550,700");
-      @import url("https://fonts.googleapis.com/css?family=Lato:300,400,550,700");
-      @import url("https://fonts.googleapis.com/css2?family=Tilt+Neon&display=swap");
-      @import url("https://fonts.googleapis.com/css2?family=Baumans&display=swap");
-
       body {
-        background-color: #5a2555;
+        background-color: #eadeda;
       }
 
       .container {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        height: 100vh;
-      }
-      h1 {
-        font-family: "Baumans";
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 10px;
+        max-width: 80%;
+        margin: 0 auto;
         color: #343434;
-        font-size: 5em;
-        font-weight: 700;
-        text-shadow: 2px 2px 4px #000000;
       }
 
-      h1 a {
-        color: inherit;
-        text-decoration: inherit;
-      }
-
-      h2 {
-        font-family: "Baumans";
-        color: #343434;
-        font-size: 3em;
-        font-weight: 550;
-        text-shadow: 1px 1px 2px #000000;
-      }
-
-      .navbar {
-        display: flex;
-        align-items: center;
-        justify-content: space-around;
-        width: 80%;
-        margin-top: 20px;
-      }
-
-      .nav-link {
-        font-family: "Lato", sans-serif;
-        color: #343434;
-        font-size: 2em;
-        font-weight: 400;
-        text-shadow: 1px 1px 2px #000000;
-        text-decoration: none;
-        color: #3F4739(0, 0, 0);
-        padding: 10px 20px;
-        border-radius: 10px;
-        text-align: center;
-      }
-
-      .nav-link:hover {
-        background-color: #eadeda;
-        opacity: 0.6;
-      }
-
-      .search-box {
-        font-size: 20px;
-        border: solid 0.3em #343434;
-        display: inline-block;
-        position: relative;
-        border-radius: 2.5em;
-      }
-      .search-box input[type="text"] {
-        font-family: inherit;
-        font-weight: bold;
-        width: 2.5em;
-        height: 2.5em;
-        padding: 0.3em 2.1em 0.3em 0.4em;
-        border: none;
+      .box {
+        border: 3px solid black;
         box-sizing: border-box;
-        border-radius: 2.5em;
-        transition: width 800ms cubic-bezier(0.68, -0.55, 0.27, 1.55) 150ms;
-      }
-      .search-box input[type="text"]:focus {
-        outline: none;
-      }
-      .search-box input[type="text"]:focus,
-      .search-box input[type="text"]:not(:placeholder-shown) {
-        width: 18em;
-        transition: width 800ms cubic-bezier(0.68, -0.55, 0.27, 1.55);
-      }
-      .search-box input[type="text"]:focus + button[type="reset"],
-      .search-box
-        input[type="text"]:not(:placeholder-shown)
-        + button[type="reset"] {
-        transform: rotate(-45deg) translateY(0);
-        transition: transform 150ms ease-out 800ms;
-      }
-      .search-box input[type="text"]:focus + button[type="reset"]:after,
-      .search-box
-        input[type="text"]:not(:placeholder-shown)
-        + button[type="reset"]:after {
-        opacity: 1;
-        transition: top 150ms ease-out 950ms, right 150ms ease-out 950ms,
-          opacity 150ms ease 950ms;
-      }
-      .search-box button[type="reset"] {
-        background-color: transparent;
-        width: 1.4em;
-        height: 1.4em;
-        border: 0;
-        padding: 0;
-        outline: 0;
+        height: 100px;
+        padding: 10px;
+        cursor: pointer;
+        user-select: none;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        border-color: #3f4739;
+        border-radius: 5px;
+        transform-style: preserve-3d;
+        backface-visibility: hidden;
+        text-align: center;
+        cursor: pointer;
+        position: relative;
+        transition: transform 0.7s, background-color 1s;
         display: flex;
+        overflow-wrap: break-word;
         justify-content: center;
         align-items: center;
-        position: absolute;
-        top: 0.55em;
-        right: 0.55em;
-        transform: rotate(-45deg) translateY(2.2em);
-        transition: transform 150ms ease-out 150ms;
-      }
-      .search-box button[type="reset"]:before,
-      .search-box button[type="reset"]:after {
-        content: "";
-        background-color: #343434;
-        width: 0.3em;
-        height: 1.4em;
-        position: absolute;
-      }
-      .search-box button[type="reset"]:after {
-        transform: rotate(90deg);
-        opacity: 0;
-        transition: transform 150ms ease-out, opacity 150ms ease-out;
-      }
-      .search-box input {
-        background-color: #eadeda;
+        font-size: calc(10px + 2vw);
       }
 
-      .search-box input[type="text"] {
-        color: #343434; /* Change "red" to the color you want */
+      .box:hover {
+        transform: scale(1.1);
+        background-color: #998888;
+        border-radius: 5px;
+      }
+
+      header {
+        background-color: #343434;
+        color: #eadeda;
+        padding: 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      nav ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+      }
+
+      nav li {
+        margin: 0 10px;
+      }
+
+      nav a {
+        color: #eadeda;
+        text-decoration: none;
+        font-weight: bold;
+      }
+      #logo {
+        font-size: 40px;
+        font-weight: bold;
+        color: #eadeda;
       }
     </style>
-
-    <script>
-      const searchBox = document.querySelector(".search-box");
-      let isFocused = false;
-
-      document.addEventListener("keypress", (event) => {
-        if (!isFocused) {
-          searchBox.focus();
-          isFocused = true;
-        }
-        searchBox.value += event.key;
-      });
-    </script>
   </head>
   <body>
-    
-     
+    <header>
+      <div id="logo">Iso's ChatGPT Prompt Library</div>
+      <nav>
+        <ul>
+          <li><a href="index.html"> IsoHome</a></li>
+        </ul>
+      </nav>
+    </header>
+    <br />
+    <div class="container">
+      <div
+        class="box"
+        data-text="cd ~/gpt4free
+        "
+      >
+        Go to directory
+      </div>
+      <div
+        class="box"
+        data-text="streamlit run streamlit_app.py
+        "
+      >
+        Run program
+      </div>
+      <div
+        class="box"
+        data-text="ps aux | grep streamlit
+      "
+      >
+        Check processes
+      </div>
+      <div class="box" data-text="Prompt 4 Text">Prompt 4</div>
+      <div class="box" data-text="Prompt 5 Text">Prompt 5</div>
+      <div class="box" data-text="Prompt 6 Text">Prompt 6</div>
     </div>
+
+    <script>
+      // Get all boxes
+      var boxes = document.querySelectorAll(".box");
+
+      // Add click event listener to each box
+      boxes.forEach(function (box) {
+        box.addEventListener("click", function () {
+          // Copy text content of box to clipboard
+          var text = this.dataset.text;
+          navigator.clipboard.writeText(text);
+        });
+      });
+    </script>
   </body>
 </html>
