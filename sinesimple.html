@@ -2,35 +2,47 @@
 <html>
   <head>
     <meta charset="UTF-8" />
-    <title>Sine Wave Animation</title>
+    <title>Mathematical Pattern Animation</title>
     <style>
       canvas {
-        border: 1px solid black;
+        background-color: #222;
+        display: block;
+        margin: 0 auto;
       }
     </style>
   </head>
   <body>
-    <canvas id="myCanvas" width="500" height="300"></canvas>
+    <canvas id="canvas"></canvas>
     <script>
-      const canvas = document.getElementById("myCanvas");
+      const canvas = document.getElementById("canvas");
       const ctx = canvas.getContext("2d");
-      const amplitude = 50;
+      const width = (canvas.width = window.innerWidth);
+      const height = (canvas.height = window.innerHeight);
+
+      const amplitude = 20;
       const frequency = Math.PI / 11;
-      let angle = 0;
+      let phase = 0;
+      const inc = 0.1;
 
-      setInterval(draw, 30);
+      function render() {
+        ctx.clearRect(0, 0, width, height);
 
-      function draw() {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
         ctx.beginPath();
-        for (let x = 0; x <= canvas.width; x += 10) {
-          const y =
-            canvas.height / 2 + amplitude * Math.sin(frequency * x + angle);
+
+        for (let x = 0; x < width; x += 10) {
+          const y = height / 2 + Math.sin(x * frequency + phase) * amplitude;
           ctx.lineTo(x, y);
         }
+
+        ctx.strokeStyle = "#fff";
         ctx.stroke();
-        angle += 0.1;
+
+        phase += inc;
+
+        requestAnimationFrame(render);
       }
+
+      render();
     </script>
   </body>
 </html>
