@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Mathematical Pattern Animation</title>
+    <style>
+      canvas {
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="myCanvas"></canvas>
+
+    <script>
+      // Get the canvas element
+      var canvas = document.getElementById("myCanvas");
+
+      // Set the canvas dimensions
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+
+      // Get the canvas context
+      var ctx = canvas.getContext("2d");
+
+      // Set the colors and line width
+      ctx.strokeStyle = "#ff0000";
+      ctx.fillStyle = "#000000";
+      ctx.lineWidth = 2;
+
+      // Set the initial angle and radius
+      var angle = 0;
+      var radius = 100;
+
+      // Set the animation speed
+      var speed = 1;
+
+      // Define the animation loop
+      function animate() {
+        // Clear the canvas
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        // Draw the pattern
+        for (var i = 0; i < 20; i++) {
+          ctx.beginPath();
+          ctx.arc(
+            canvas.width / 2,
+            canvas.height / 2,
+            (radius * i) / 20,
+            0 + angle,
+            Math.PI * 2 + angle
+          );
+          ctx.stroke();
+        }
+
+        // Update the angle
+        angle += (speed * Math.PI) / 180;
+
+        // Request the next frame
+        requestAnimationFrame(animate);
+      }
+
+      // Start the animation
+      animate();
+    </script>
+  </body>
+</html>

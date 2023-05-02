@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Math-based Pattern Animation</title>
+  </head>
+  <body>
+    <canvas id="canvas"></canvas>
+    <script>
+      const canvas = document.getElementById("canvas");
+      const ctx = canvas.getContext("2d");
+      const width = (canvas.width = window.innerWidth);
+      const height = (canvas.height = window.innerHeight);
+
+      const numLines = 50; // increase number of lines
+      const lineWidth = 2;
+
+      let time = 0;
+
+      function draw() {
+        ctx.clearRect(0, 0, width, height);
+
+        for (let i = 0; i < numLines; i++) {
+          const x = (i / numLines) * width;
+          const angle = (i / numLines) * Math.PI * 2;
+          const y = height / 2 + Math.sin(angle * 5 + time) * 50;
+
+          ctx.beginPath();
+          ctx.moveTo(x, height / 2);
+          ctx.lineTo(x, y);
+          ctx.strokeStyle = `hsl(${(i / numLines) * 360}, 100%, 50%)`;
+          ctx.lineWidth = lineWidth;
+          ctx.stroke();
+        }
+
+        time += 0.005;
+
+        requestAnimationFrame(draw);
+      }
+
+      draw();
+    </script>
+  </body>
+</html>
