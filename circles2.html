@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Circles Animation</title>
+    <style>
+      canvas {
+        display: block;
+        margin: auto;
+        background-color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="canvas"></canvas>
+    <script>
+      // Set up the canvas
+      const canvas = document.getElementById("canvas");
+      const ctx = canvas.getContext("2d");
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+      const centerX = canvas.width / 2;
+      const centerY = canvas.height / 2;
+      const radius = Math.min(centerX, centerY) * 0.8;
+
+      // Generate random circles
+      const circles = [];
+      const numCircles = 20;
+      for (let i = 0; i < numCircles; i++) {
+        const orbitRadius = Math.random() * radius * 0.4 + radius * 0.2;
+        const orbitCenterX =
+          centerX + orbitRadius * Math.cos(Math.random() * 2 * Math.PI);
+        const orbitCenterY =
+          centerY + orbitRadius * Math.sin(Math.random() * 2 * Math.PI);
+        const circle = {
+          orbitCenterX,
+          orbitCenterY,
+          orbitAngle: Math.random() * 2 * Math.PI,
+          orbitSpeed: Math.random() * 0.05 + 0.00005,
+          size: Math.random() * 50 + 10,
+          color: `rgb(${Math.floor(Math.random() * 256)}, ${Math.floor(
+            Math.random() * 256
+          )}, ${Math.floor(Math.random() * 256)})`,
+        };
+        circles.push(circle);
+      }
+
+      // Animate the circles
+      function animate() {
+        // Clear the canvas
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        // Draw the stationary circle
+        ctx.beginPath();
+        ctx.arc(centerX, centerY, radius, 0, 2 * Math.PI);
+        ctx.stroke();
+
+        // Update and draw the moving circles
+        circles.forEach((circle) => {
+          // Update orbit angle
+          circle.orbitAngle += circle.orbitSpeed;
+
+          // Update position and size
+          const orbitRadius = Math.sqrt(
+            (circle.orbitCenterX - centerX) ** 2 +
+              (circle.orbitCenterY - centerY) ** 2
+          );
+          const x = centerX + orbitRadius * Math.cos(circle.orbitAngle);
+          const y = centerY + orbitRadius * Math.sin(circle.orbitAngle);
+          circle.size += Math.random() * 2 - 1;
+          circle.size = Math.max(10, Math.min(circle.size, 60));
+
+          // Update color
+          if (Math.random() < 0.01) {
+            circle.color = `rgb(${Math.floor(
+              Math.random() * 256
+            )}, ${Math.floor(Math.random() * 256)}, ${Math.floor(
+              Math.random() * 256
+            )})`;
+          }
+
+          // Draw the circle
+          ctx.fillStyle = circle.color;
+          ctx.beginPath();
+          ctx.arc(x, y, circle.size, 0, 2 * Math.PI);
+          ctx.fill();
+        });
+
+        // Request next frame
+        requestAnimationFrame(animate);
+      }
+
+      // Start the animation
+      animate();
+    </script>
+  </body>
+</html>
