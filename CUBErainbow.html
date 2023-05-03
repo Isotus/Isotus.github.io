@@ -1,0 +1,61 @@
+<style>
+  .cube {
+    width: 100px;
+    height: 100px;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 5s;
+  }
+
+  .face {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background: #555;
+    border-style: solid;
+    opacity: 0.7;
+  }
+
+  .front {
+    transform: translateZ(50px);
+    background: #ff0000;
+  }
+
+  .back {
+    transform: translateZ(-50px);
+    background: #00ffff;
+  }
+
+  .right {
+    transform: rotateY(90deg) translateZ(50px);
+    background: #5fdf0f;
+  }
+
+  .left {
+    transform: rotateY(-90deg) translateZ(50px);
+    background: #a020f0;
+  }
+
+  .top {
+    transform: rotateX(90deg) translateZ(50px);
+    background: #fff000;
+  }
+
+  .bottom {
+    transform: rotateX(-90deg) translateZ(50px);
+    background: #000fff;
+  }
+
+  .cube:hover {
+    transform: rotate(360deg) rotateY(360deg);
+  }
+</style>
+
+<div class="cube">
+  <div class="face front"></div>
+  <div class="face back"></div>
+  <div class="face right"></div>
+  <div class="face left"></div>
+  <div class="face top"></div>
+  <div class="face bottom"></div>
+</div>
