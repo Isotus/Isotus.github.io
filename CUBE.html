@@ -42,9 +42,10 @@
         mouseY = event.clientY;
       });
 
-      document.addEventListener("mouseup", function (event) {
-        mouseDown = false;
-      });
+      // Add these lines to keep track of the cube's rotational speed
+      var speedX = 0;
+      var speedY = 0;
+      var friction = 0.95; // A value between 0 and 1 that determines how quickly the cube slows down
 
       document.addEventListener("mousemove", function (event) {
         if (mouseDown) {
@@ -52,9 +53,26 @@
           var deltaY = event.clientY - mouseY;
           cube.rotation.y += deltaX * 0.01;
           cube.rotation.x += deltaY * 0.01;
+          speedX = deltaX * 0.01; // Update speed based on mouse movement
+          speedY = deltaY * 0.01;
           mouseX = event.clientX;
           mouseY = event.clientY;
         }
+      });
+
+      document.addEventListener("mouseup", function (event) {
+        mouseDown = false;
+        // Set up a loop to gradually slow down the cube's rotation
+        var updateSpeed = function () {
+          if (Math.abs(speedX) > 0.001 || Math.abs(speedY) > 0.001) {
+            cube.rotation.y += speedX;
+            cube.rotation.x += speedY;
+            speedX *= friction; // Slow down the speed based on friction
+            speedY *= friction;
+            requestAnimationFrame(updateSpeed);
+          }
+        };
+        updateSpeed();
       });
 
       function animate() {
