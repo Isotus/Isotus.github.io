@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      canvas {
+        border: 1px solid black;
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="myCanvas" width="500" height="500"></canvas>
+    <script>
+      const canvas = document.getElementById('myCanvas');
+      const ctx = canvas.getContext('2d');
+
+      // Define a function to calculate the x and y coordinates at a given time
+      function calculateCoordinates(time, x) {
+        // You can use mathematical formulas to calculate the x and y values
+        const frequency = Math.PI / x;
+        const xCoord = Math.sin(time * frequency) * (canvas.width / 4) + canvas.width / 2;
+        const yCoord = Math.cos(time * frequency * 100) * (canvas.height / 4) + canvas.height / 2;
+        return [xCoord, yCoord, frequency];
+      }
+
+      let time = 0;
+      let x = 0.1;
+      let isIncrementing = true;
+
+      function animate() {
+        // Clear the canvas for each frame
+        ctx.fillStyle = 'rgba(255, 255, 255, 0.1)';
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+        // Draw a circle at the calculated x and y coordinates
+        const [xCoord, yCoord, frequency] = calculateCoordinates(time, x);
+        ctx.beginPath();
+        ctx.arc(xCoord, yCoord, 10, 10, 12 * Math.PI);
+        ctx.fillStyle = `rgb(${255 * Math.sin(frequency)}, ${255 * Math.cos(frequency)}, ${255 * Math.sin(frequency * 3)})`;
+        ctx.fill();
+
+        // Increment or decrement the value of x depending on the direction
+        if (isIncrementing) {
+          x += 0.1;
+          if (x >= 50) {
+            isIncrementing = false;
+          }
+        } else {
+          x -= 0.1;
+          if (x <= 1) {
+            isIncrementing = true;
+          }
+        }
+
+        // Increment the time for the next frame
+        time += 100;
+
+        // Request the next animation frame
+        requestAnimationFrame(animate);
+      }
+
+      animate();
+    </script
+  </body>
+</html>
