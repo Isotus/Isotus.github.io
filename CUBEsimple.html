@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Click and Drag Cube</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <style>
+      canvas {
+        width: 100%;
+        height: 100%;
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <script>
+      var scene = new THREE.Scene();
+      var camera = new THREE.PerspectiveCamera(
+        75,
+        window.innerWidth / window.innerHeight,
+        0.1,
+        1000
+      );
+      var renderer = new THREE.WebGLRenderer();
+      renderer.setSize(window.innerWidth, window.innerHeight);
+      document.body.appendChild(renderer.domElement);
+
+      var geometry = new THREE.BoxGeometry();
+      var material = new THREE.MeshBasicMaterial({ color: 0x5a2555 });
+      var cube = new THREE.Mesh(geometry, material);
+      scene.add(cube);
+
+      // Create a wireframe geometry based on the same box geometry
+      var wireframe = new THREE.WireframeGeometry(geometry);
+      var wireframeMaterial = new THREE.LineBasicMaterial({
+        color: 0x343434,
+        linewidth: 200,
+      });
+      var edges = new THREE.LineSegments(wireframe, wireframeMaterial);
+      cube.add(edges);
+
+      camera.position.z = 3.5;
+
+      var mouseDown = false;
+      var mouseX = 0;
+      var mouseY = 0;
+
+      document.addEventListener("mousedown", function (event) {
+        mouseDown = true;
+        mouseX = event.clientX;
+        mouseY = event.clientY;
+      });
+
+      // Add these lines to keep track of the cube's rotational speed
+      var speedX = 0;
+      var speedY = 0;
+      var friction = 0.95; // A value between 0 and 1 that determines how quickly the cube slows down
+
+      document.addEventListener("mousemove", function (event) {
+        if (mouseDown) {
+          var deltaX = event.clientX - mouseX;
+          var deltaY = event.clientY - mouseY;
+          cube.rotation.y += deltaX * 0.01;
+          cube.rotation.x += deltaY * 0.01;
+          speedX = deltaX * 0.01; // Update speed based on mouse movement
+          speedY = deltaY * 0.01;
+          mouseX = event.clientX;
+          mouseY = event.clientY;
+        }
+      });
+
+      document.addEventListener("mouseup", function (event) {
+        mouseDown = false;
+        // Set up a loop to gradually slow down the cube's rotation
+        var updateSpeed = function () {
+          if (Math.abs(speedX) > 0.001 || Math.abs(speedY) > 0.001) {
+            cube.rotation.y += speedX;
+            cube.rotation.x += speedY;
+            speedX *= friction; // Slow down the speed based on friction
+            speedY *= friction;
+            requestAnimationFrame(updateSpeed);
+          }
+        };
+        updateSpeed();
+      });
+
+      function animate() {
+        requestAnimationFrame(animate);
+        renderer.render(scene, camera);
+      }
+
+      animate();
+    </script>
+  </body>
+</html>
