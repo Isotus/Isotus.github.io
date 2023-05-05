@@ -1,4 +1,35 @@
 <style>
+  header {
+    background-color: #343434;
+    color: #eadeda;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+  }
+
+  nav li {
+    margin: 0 10px;
+  }
+
+  nav a {
+    color: #eadeda;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  #logo {
+    font-size: 40px;
+    font-weight: bold;
+    color: #eadeda;
+  }
+</style>
+<style>
   .cube {
     width: 100px;
     height: 100px;
@@ -50,7 +81,14 @@
     transform: rotate(360deg) rotateY(360deg);
   }
 </style>
-
+<header>
+  <div id="logo">Circles</div>
+  <nav>
+    <ul>
+      <li><a href="index.html"> IsoHome</a></li>
+    </ul>
+  </nav>
+</header>
 <div class="cube">
   <div class="face front"></div>
   <div class="face back"></div>

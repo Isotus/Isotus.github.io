@@ -10,8 +10,48 @@
         margin: 0 auto;
       }
     </style>
+    <style>
+      header {
+        background-color: #343434;
+        color: #eadeda;
+        padding: 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      nav ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+      }
+
+      nav li {
+        margin: 0 10px;
+      }
+
+      nav a {
+        color: #eadeda;
+        text-decoration: none;
+        font-weight: bold;
+      }
+      #logo {
+        font-size: 40px;
+        font-weight: bold;
+        color: #eadeda;
+      }
+    </style>
   </head>
   <body>
+    <header>
+      <div id="logo">Simple Sine</div>
+      <nav>
+        <ul>
+          <li><a href="index.html"> IsoHome</a></li>
+          <li><a href="experiments.html"> Experiments</a></li>
+        </ul>
+      </nav>
+    </header>
     <canvas id="canvas"></canvas>
     <script>
       const canvas = document.getElementById("canvas");
