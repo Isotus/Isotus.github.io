@@ -77,9 +77,11 @@
           orbitAngle: Math.random() * 2 * Math.PI,
           orbitSpeed: Math.random() * 0.05 + 0.00005,
           size: Math.random() * 50 + 10,
-          color: `rgb(${Math.floor(Math.random() * 256)}, ${Math.floor(
+          color: `rgba(${Math.floor(Math.random() * 256)}, ${Math.floor(
             Math.random() * 256
-          )}, ${Math.floor(Math.random() * 256)})`,
+          )}, ${Math.floor(Math.random() * 256)}, ${
+            Math.random() * 0.8 + 0.2
+          })`,
         };
         circles.push(circle);
       }
@@ -109,13 +111,12 @@
           circle.size += Math.random() * 2 - 1;
           circle.size = Math.max(10, Math.min(circle.size, 60));
 
-          // Update color
-          if (Math.random() < 0.01) {
-            circle.color = `rgb(${Math.floor(
+          if (Math.random() < 0.005) {
+            circle.color = `rgba(${Math.floor(
               Math.random() * 256
             )}, ${Math.floor(Math.random() * 256)}, ${Math.floor(
               Math.random() * 256
-            )})`;
+            )}, ${Math.random() * 0.8 + 0.2})`;
           }
 
           // Draw the circle
