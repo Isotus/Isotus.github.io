@@ -3,10 +3,13 @@
   <head>
     <title>Circles Animation</title>
     <style>
+      body {
+        background-color: #5a2555;
+      }
       canvas {
         display: block;
         margin: auto;
-        background-color: white;
+        background-color: #343434;
       }
     </style>
     <style>
@@ -92,6 +95,9 @@
         ctx.clearRect(0, 0, canvas.width, canvas.height);
 
         // Draw the stationary circle
+        ctx.strokeStyle = "#5a2555";
+        ctx.lineWidth = 4;
+
         ctx.beginPath();
         ctx.arc(centerX, centerY, radius, 0, 2 * Math.PI);
         ctx.stroke();
