@@ -4,7 +4,7 @@
     <title>ChatGPT Prompt Library</title>
     <style>
       body {
-        background-color: #eadeda;
+        background-color: #5a2555;
       }
 
       .container {
@@ -51,7 +51,7 @@
 
       .box:hover {
         transform: scale(1.1);
-        background-color: #998888;
+        background-color: #eadeda;
       }
 
       header {
@@ -102,19 +102,5 @@
       <div class="box" data-text="Prompt 5 Text">Prompt 5</div>
       <div class="box" data-text="Prompt 6 Text">Prompt 6</div>
     </div>
-
-    <script>
-      // Get all boxes
-      var boxes = document.querySelectorAll(".box");
-
-      // Add click event listener to each box
-      boxes.forEach(function (box) {
-        box.addEventListener("click", function () {
-          // Copy text content of box to clipboard
-          var text = this.dataset.text;
-          navigator.clipboard.writeText(text);
-        });
-      });
-    </script>
   </body>
 </html>
