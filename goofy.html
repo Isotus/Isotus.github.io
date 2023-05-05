@@ -76,6 +76,7 @@
         border-radius: 10px;
         transition: animation-play-state 0.5s ease-out;
         position: relative; /* needed for the glow effect */
+        transition: all 0.3s ease;
       }
       .nav-link1:before {
         content: "";
@@ -96,15 +97,15 @@
       }
 
       .nav-link1:hover {
-        background-color: #eadeda;
-        opacity: 0.6; /* reduced opacity */
+        background-color: rgba(234, 222, 218, 0.4);
+        transform: scale(1.1) translateY(10%);
         animation: spin 30s infinite paused;
         animation-delay: 5s; /* add a delay of 3 seconds */
       }
 
       @keyframes spin {
         0% {
-          transform: rotate(0deg);
+          transform: rotate(0deg) scale(1.1);
           animation-timing-function: ease-in;
         }
         2.5% {
