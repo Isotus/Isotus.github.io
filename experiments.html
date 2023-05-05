@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>ChatGPT Prompt Library</title>
+    <style>
+      body {
+        background-color: #eadeda;
+      }
+
+      .container {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 20px;
+        max-width: 90%;
+        margin: 0 auto;
+        color: #343434;
+      }
+
+      .box {
+        font-family: "Lato", sans-serif;
+        color: #343434;
+        font-size: 2em;
+        font-weight: 400;
+        text-shadow: 1px 1px 2px #000000;
+        text-decoration: none;
+        color: #3F4739(0, 0, 0);
+        padding: 10px 20px;
+
+        border: 3px solid black;
+        box-sizing: border-box;
+        height: 100px;
+        padding: 10px;
+        cursor: pointer;
+        user-select: none;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        border-color: #343434;
+        border-radius: 10px;
+        transform-style: preserve-3d;
+        backface-visibility: hidden;
+        text-align: center;
+        cursor: pointer;
+        position: relative;
+        transition: transform 0.3s ease, background-color 0.3s ease;
+        display: flex;
+        overflow-wrap: break-word;
+        justify-content: center;
+        align-items: center;
+        font-size: calc(10px + 2vw);
+      }
+
+      .box:hover {
+        transform: scale(1.1);
+        background-color: #998888;
+      }
+
+      header {
+        background-color: #343434;
+        color: #eadeda;
+        padding: 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      nav ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+      }
+
+      nav li {
+        margin: 0 10px;
+      }
+
+      nav a {
+        color: #eadeda;
+        text-decoration: none;
+        font-weight: bold;
+      }
+      #logo {
+        font-size: 40px;
+        font-weight: bold;
+        color: #eadeda;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div id="logo">ChatGPT Prompt Library</div>
+      <nav>
+        <ul>
+          <li><a href="index.html"> IsoHome</a></li>
+          <li><a href="library.html"> GPT-4 Free Commands</a></li>
+        </ul>
+      </nav>
+    </header>
+    <br />
+    <div class="container">
+      <div class="box" data-text="Prompt 4 Text">Prompt 4</div>
+      <div class="box" data-text="Prompt 5 Text">Prompt 5</div>
+      <div class="box" data-text="Prompt 6 Text">Prompt 6</div>
+    </div>
+
+    <script>
+      // Get all boxes
+      var boxes = document.querySelectorAll(".box");
+
+      // Add click event listener to each box
+      boxes.forEach(function (box) {
+        box.addEventListener("click", function () {
+          // Copy text content of box to clipboard
+          var text = this.dataset.text;
+          navigator.clipboard.writeText(text);
+        });
+      });
+    </script>
+  </body>
+</html>
