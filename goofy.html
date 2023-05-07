@@ -268,23 +268,22 @@
 
       @keyframes flip {
         0% {
-          transform: perspective(400px) scale(1) rotateZ(0deg);
+          transform: perspective(400px) scale(1) rotateY(0deg) rotateZ(0deg);
           animation-timing-function: ease-in;
         }
         50% {
-          transform: perspective(400px) scale(110%) rotatez(90deg);
+          transform: perspective(400px) scale(110%) rotateY(-90deg) rotateZ(90deg);
           animation-timing-function: linear;
         }
 
         100% {
-          transform: perspective(400px) scale(1) rotatez(180deg);
+          transform: perspective(400px) scale(1) rotateY(-180deg) rotateZ(180deg);
           animation-timing-function: ease-out;
         }
       }
 
       .flip180 {
-        transform: rotatez(180deg);
-      }
+        transform: rotateY(-180deg) rotateZ(180deg);
     </style>
 
     <script>
