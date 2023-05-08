@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Random Pattern</title>
+    <style>
+      canvas {
+        border: 1px solid black;
+        width: 800px;
+        height: 600px;
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="myCanvas" width="800" height="600"></canvas>
+    <script>
+      var canvas = document.getElementById("myCanvas");
+      var ctx = canvas.getContext("2d");
+
+      // Generate random pattern
+      for (var i = 0; i < 1000; i++) {
+        var x = Math.random() * canvas.width;
+        var y = Math.random() * canvas.height;
+
+        var size = Math.random() * 50;
+        var red = Math.floor(Math.random() * 255);
+        var green = Math.floor(Math.random() * 255);
+        var blue = Math.floor(Math.random() * 255);
+
+        ctx.fillStyle = "rgb(" + red + "," + green + "," + blue + ")";
+        ctx.fillRect(x, y, size, size);
+      }
+    </script>
+  </body>
+</html>
