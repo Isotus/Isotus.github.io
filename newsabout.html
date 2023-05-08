@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>The Novaoptic Dispatch</title>
+    <link rel="shortcut icon" type="image/ico" href="favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5" />
+    <meta name="msapplication-TileColor" content="#da532c" />
+    <meta name="theme-color" content="#ffffff" />
+
+    <style>
+      /* navigation bar styles */
+      @import url("https://fonts.googleapis.com/css2?family=Baumans&display=swap");
+
+      header {
+        background-color: #343434;
+        padding: 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      body {
+        background-color: #eadeda;
+      }
+
+      #logo {
+        font-size: 40px;
+        font-weight: bold;
+        color: #eadeda;
+      }
+
+      nav ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+      }
+
+      nav li {
+        margin: 0 10px;
+      }
+
+      nav a {
+        color: #eadeda;
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 24px;
+      }
+
+      /* main content styles */
+      main {
+        margin: 20px;
+      }
+
+      h1 {
+        font-size: 36px;
+        font-weight: bold;
+        margin-bottom: 20px;
+        margin: 30px auto;
+        /* Add some margin on top and bottom, and center the element horizontally */
+        max-width: 90%;
+        /* Adjust this value as you like */
+        color: #343434;
+        font-family: "Baumans";
+      }
+
+      .article {
+        display: flex;
+        margin-bottom: 20px;
+        margin: 30px auto;
+        /* Add some margin on top and bottom, and center the element horizontally */
+        max-width: 90%;
+        /* Adjust this value as you like */
+      }
+
+      .article img {
+        width: 200px;
+        height: 200px;
+        object-fit: cover;
+        margin-right: 20px;
+      }
+
+      .article h2 {
+        font-size: 24px;
+        margin-bottom: 10px;
+        color: #343434;
+        font-family: "Baumans";
+      }
+
+      .modal-heading {
+        font-size: 24px;
+        margin-bottom: 10px;
+        color: #343434;
+        font-family: "Baumans";
+      }
+      .article p {
+        font-size: 16px;
+        line-height: 1.5;
+        margin: 0;
+        color: #343434;
+      }
+
+      /* modal styles */
+      .modal {
+        display: none;
+        position: fixed;
+        z-index: 1;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgba(0, 0, 0, 0.8);
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        border-radius: 5px;
+      }
+
+      .modal-content {
+        background-color: #eadeda;
+        margin: 10% auto;
+        padding: 20px;
+        border: 1px solid #3f4739;
+        width: 100%;
+        max-width: 850px;
+        position: relative;
+        border-radius: 5px;
+        text-align: justify;
+      }
+
+      .modal-content h2 {
+        text-align: center;
+      }
+
+      .close {
+        position: absolute;
+        top: 15px;
+        right: 25px;
+        font-size: 50px;
+        font-weight: bold;
+        color: #343434;
+        cursor: pointer;
+      }
+
+      /* responsive styles */
+      @media screen and (max-width: 768px) {
+        header {
+          flex-direction: column;
+          align-items: left;
+        }
+
+        #logo {
+          margin-bottom: 10px;
+        }
+
+        nav {
+          margin-top: 10px;
+        }
+
+        .article {
+          flex-direction: column;
+        }
+
+        .article img {
+          width: 100%;
+          height: auto;
+          margin-right: 0;
+          margin-bottom: 10px;
+        }
+
+        .modal-content {
+          margin: 20% auto;
+        }
+      }
+
+      .article {
+        cursor: pointer;
+        position: relative;
+        transition: transform 0.7s, background-color 1s;
+      }
+
+      .article {
+        transform-style: preserve-3d;
+        backface-visibility: hidden;
+      }
+
+      .article:hover {
+        transform: scale(1.1);
+        background-color: #998888;
+        border-radius: 5px;
+      }
+
+      .modal {
+        display: none;
+      }
+
+      .article img {
+        border-top-left-radius: 5px;
+        border-bottom-left-radius: 5px;
+      }
+
+      .article {
+        border-radius: 5px;
+        border: 3px solid red;
+        border-color: #3f4739;
+      }
+
+      .modal-header-image {
+        display: block;
+        width: auto;
+        height: 10%;
+        margin-bottom: 16px;
+        object-fit: cover;
+      }
+      #icon {
+        display: block;
+        width: auto;
+        height: 204.8px;
+        margin-right: 15px;
+        object-fit: fill;
+      }
+      t1 {
+        font-size: 40px;
+        font-weight: bold;
+        color: #eadeda;
+        text-align: right;
+        text-shadow: 2px 2px 4px #000000;
+        font-family: "Baumans";
+      }
+      t2 {
+        font-size: 20px;
+        font-weight: bold;
+        color: #eadeda;
+        text-align: center;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <img src="alienpaper.jpeg" id="icon" />
+      <t1>The Nova-Optic Dispatch</t1>
+      <nav>
+        <ul>
+          <li><a href="index.html"> IsoHome</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <h1>Latest From The Nova-Physical Resonator:</h1>
+      efer
+    </main>
+  </body>
+</html>
