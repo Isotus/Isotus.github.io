@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      body {
+        margin: 0;
+        overflow: hidden;
+        font-family: Arial, sans-serif;
+      }
+      #cube-container {
+        perspective: 1000px;
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      #cube {
+        width: 200px;
+        height: 200px;
+        transform-style: preserve-3d;
+        transition: transform 1s;
+      }
+      .face {
+        width: 200px;
+        height: 200px;
+        position: absolute;
+        background-color: rgba(100, 100, 100, 0.5);
+        border: 1px solid #333;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .face a {
+        font-size: 24px;
+        color: white;
+        text-decoration: none;
+      }
+      #face-1 {
+        transform: rotateY(0deg) translateZ(100px);
+      }
+      #face-2 {
+        transform: rotateY(90deg) translateZ(100px);
+      }
+      #face-3 {
+        transform: rotateY(180deg) translateZ(100px);
+      }
+      #face-4 {
+        transform: rotateY(-90deg) translateZ(100px);
+      }
+      #face-5 {
+        transform: rotateX(90deg) translateZ(100px);
+      }
+      #face-6 {
+        transform: rotateX(-90deg) translateZ(100px);
+      }
+    </style>
+  </head>
+  <body>
+    <div id="cube-container">
+      <div id="cube">
+        <div id="face-1" class="face">
+          <a href="https://example.com/1">Face 1</a>
+        </div>
+        <div id="face-2" class="face">
+          <a href="https://example.com/2">Face 2</a>
+        </div>
+        <div id="face-3" class="face">
+          <a href="https://example.com/3">Face 3</a>
+        </div>
+        <div id="face-4" class="face">
+          <a href="https://example.com/4">Face 4</a>
+        </div>
+        <div id="face-5" class="face">
+          <a href="https://example.com/5">Face 5</a>
+        </div>
+        <div id="face-6" class="face">
+          <a href="https://example.com/6">Face 6</a>
+        </div>
+      </div>
+    </div>
+    <script>
+      const cube = document.getElementById("cube");
+      let xAngle = 0,
+        yAngle = 0;
+      let isDragging = false;
+      let startX, startY;
+
+      cube.addEventListener("mousedown", (e) => {
+        isDragging = true;
+        startX = e.pageX;
+        startY = e.pageY;
+      });
+
+      document.addEventListener("mousemove", (e) => {
+        if (isDragging) {
+          const deltaX = e.pageX - startX;
+          const deltaY = e.pageY - startY;
+          xAngle -= deltaY / 2;
+          yAngle += deltaX / 2;
+          cube.style.transform = `rotateX(${xAngle}deg) rotateY(${yAngle}deg)`;
+          startX = e.pageX;
+          startY = e.pageY;
+        }
+      });
+
+      document.addEventListener("mouseup", () => {
+        isDragging = false;
+      });
+    </script>
+  </body>
+</html>
